@@ -1,0 +1,992 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral (Standard) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_xpAntiSpy_DIALOG DIALOGEX 0, 0, 286, 249
+STYLE DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_TIMESERVERDLG_DIALOG DIALOGEX 0, 0, 132, 101
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set Time Server"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Exit",IDC_OK,"Button",BS_OWNERDRAW | WS_TABSTOP,0,84,
+                    132,14
+    COMBOBOX        IDC_COMBO1,3,11,126,91,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "Add new time server",IDC_STATIC,0,42,132,41,BS_CENTER
+    EDITTEXT        IDC_EDIT1,4,51,124,14,ES_AUTOHSCROLL
+    GROUPBOX        "Available time servers",IDC_STATIC,0,1,132,41,BS_CENTER,
+                    WS_EX_TRANSPARENT
+    CONTROL         "Apply",IDC_APPLY,"Button",BS_OWNERDRAW | WS_TABSTOP,3,
+                    25,125,14
+    CONTROL         "Add",IDC_ADD,"Button",BS_OWNERDRAW | WS_TABSTOP,4,66,
+                    124,14
+END
+
+IDD_TCPIP_SYS_DLG DIALOG DISCARDABLE  0, 0, 200, 169
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Connection limit"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Patch",IDOK,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | 
+                    WS_TABSTOP,7,37,50,14
+    CONTROL         "Exit",IDCANCEL,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | 
+                    WS_TABSTOP,7,149,186,14
+    COMBOBOX        IDC_COMBO,75,38,66,68,CBS_DROPDOWN | CBS_SORT | NOT 
+                    WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Build:",IDC_BUILD,14,10,49,8,NOT WS_VISIBLE
+    LTEXT           "",IDC_PATCHED,70,10,113,8,NOT WS_VISIBLE
+    CONTROL         "Reset to initial state",IDC_BTN_RESET,"Button",
+                    BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,7,53,186,14
+    LTEXT           "to",IDC_ON,61,40,8,8,NOT WS_VISIBLE
+    LTEXT           "Connections",IDC_CONNECTIONS,146,41,40,8,NOT WS_VISIBLE
+    GROUPBOX        "Info",IDC_INFO_BOX,7,2,186,32,NOT WS_VISIBLE
+    LTEXT           "",IDC_MAX_CONNS,14,21,169,8,NOT WS_VISIBLE
+    GROUPBOX        "Backup",IDC_STATIC,7,72,186,73
+    LISTBOX         IDC_BACKUP_LIST,13,84,174,40,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "-",ID_BACKUP_CLEAR,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,166,128,20,14
+    CONTROL         "+",ID_BTN_CREATE_BACKUP,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,142,128,20,14
+    CONTROL         "R",ID_BACKUP_RESTORE,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,119,128,20,14
+END
+
+IDD_USERDEFINED_PROFILES DIALOGEX 0, 0, 186, 90
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Userdefined Profiles"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_PROFILES,5,16,176,51,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Existing Profiles:",IDC_STATIC,5,7,160,8
+    CONTROL         "Delete selected",IDC_DEL_PROFILE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,65,31,55,12
+    GROUPBOX        "",IDC_STATIC,1,1,183,45
+    CONTROL         "Delete all",IDC_DEL_ALL_PROFILES,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,5,31,55,12
+    CONTROL         "Create",IDC_CREATE_PROFILE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,5,73,85,12
+    GROUPBOX        "Create new profile from current settings",IDC_STATIC,1,
+                    49,183,39
+    EDITTEXT        IDC_EDIT_NAME,5,59,175,12,ES_AUTOHSCROLL
+    CONTROL         "Export...",IDC_EXPORT_PROFILE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,126,31,55,12
+    CONTROL         "Import...",IDC_IMPORT_PROFILE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,98,73,82,12
+END
+
+IDD_CMDLINE_DLG DIALOGEX 0, 0, 286, 171
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Command line parameters"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST1,0,0,286,155,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
+                    NOT WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+END
+
+IDD_ABOUT_DIALOG DIALOGEX 0, 0, 276, 183
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,0,169,276,14
+    LTEXT           "",IDC_ABOUT,6,45,263,104,0,WS_EX_TRANSPARENT
+    CONTROL         311,-1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,0,0,280,35
+    CTEXT           "test",IDC_TRANSLATOR,4,156,271,8
+END
+
+IDD_DLG_CHECK_PROFILE DIALOG DISCARDABLE  0, 0, 280, 142
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Ignore",IDOK,223,121,50,14
+    DEFPUSHBUTTON   "Reapply Profile",IDREAPPLY,7,121,191,14
+    LISTBOX         IDC_LIST,7,29,266,87,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CTEXT           "The following settings do not match the selected profile",
+                    IDC_INFO,7,7,266,18,SS_CENTERIMAGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_xpAntiSpy_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 228
+    END
+
+    IDD_TIMESERVERDLG_DIALOG, DIALOG
+    BEGIN
+        VERTGUIDE, 4
+        VERTGUIDE, 128
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_TCPIP_SYS_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 163
+        HORZGUIDE, 142
+    END
+
+    IDD_USERDEFINED_PROFILES, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        VERTGUIDE, 5
+        VERTGUIDE, 125
+        VERTGUIDE, 184
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_DLG_CHECK_PROFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 273
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 135
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "&Profiles"
+    BEGIN
+        MENUITEM "&Neutral\tCtrl+1",            ID_PROFILE_NORMAL
+        MENUITEM "S&uggested\tCtrl+2",          ID_PROFILE_SUGGESTED
+        MENUITEM "&Windows Update\tCtrl+3",     ID_PROFILE_WINDOWS_UPDATE
+        MENUITEM "&System default\tCtrl+4",     ID_PROFILE_SYSTEM_DEFAULT
+        MENUITEM SEPARATOR
+        MENUITEM "Check profile at logon",      ID_PROFILE_AUTOSTART
+        MENUITEM SEPARATOR
+        MENUITEM "User defined &profiles...\tCtrl+Enter", 
+                                                ID_USERDEFINED_PROFILES
+    END
+    POPUP "&Special"
+    BEGIN
+        MENUITEM "&Refresh\tF5",                ID_SPECIAL_CHECKSYSTEMSTATUS
+        MENUITEM "&Set time server...",         ID_SPEZIAL_TIMESERVERFESTLEGEN
+
+        MENUITEM "&Connection limit...",        ID_SPEZIAL_VERBINDUNGSLIMIT
+        MENUITEM "Administrative mode",         ID_MNU_RUNAS_ADMIN
+        MENUITEM SEPARATOR
+        MENUITEM "Show search field\tCtrl+F",   ID_MNU_SHOW_SEARCH
+    END
+    POPUP "Mode"
+    BEGIN
+        MENUITEM "Standard\tF2",                ID_MODE_STANDARD
+        MENUITEM "Accessible\tF3",              ID_MODE_ACCESSIBLE
+    END
+    POPUP "&?"
+    BEGIN
+        MENUITEM "&About XPAntiSpy...",         ID_MENU_ABOUT
+        MENUITEM "&Visit the xp-AntiSpy Homepage", 
+                                                ID__VISITTHEXPANTISPYHOMEPAGE
+
+        MENUITEM "&Help...",                    ID_HELPINDEX
+        MENUITEM "&Symbol Reference...",        ID__VIEWQUICKLEGEND
+    END
+END
+
+IDR_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "popup"
+    BEGIN
+        MENUITEM "&Reset Setting",              ID_RESET
+        MENUITEM "&Set Setting Manually",       ID_SET
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DIVIDER             BITMAP  DISCARDABLE     "..\\res\\divider.bmp"
+IDB_UNCHECKED_WRONG     BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong.bmp"
+IDB_UNCHECKED_RIGHT     BITMAP  DISCARDABLE     "..\\res\\unchecked_right.bmp"
+IDB_UNCHECKED_CHANGE    BITMAP  DISCARDABLE     "..\\res\\unchecked_change.bmp"
+IDB_UNCHECKED           BITMAP  DISCARDABLE     "..\\res\\unchecked.bmp"
+IDB_CHECKED_WRONG       BITMAP  DISCARDABLE     "..\\res\\checked_wrong.bmp"
+IDB_CHECKED_RIGHT       BITMAP  DISCARDABLE     "..\\res\\checked_right.bmp"
+IDB_CHECKED_CHANGE      BITMAP  DISCARDABLE     "..\\res\\checked_change.bmp"
+IDB_CHECKED             BITMAP  DISCARDABLE     "..\\res\\checked.bmp"
+IDB_PINNED              BITMAP  DISCARDABLE     "..\\res\\pinned.bmp"
+IDB_UNPINNED            BITMAP  DISCARDABLE     "..\\res\\unpinned.bmp"
+IDB_DISABLED            BITMAP  DISCARDABLE     "..\\res\\disabled.bmp"
+IDB_DIV_MID             BITMAP  DISCARDABLE     "..\\res\\divider_mid.bmp"
+IDB_DIV_RIGHT           BITMAP  DISCARDABLE     "..\\res\\divider_right.bmp"
+IDB_DIV_LEFT            BITMAP  DISCARDABLE     "..\\res\\divider_left.bmp"
+IDB_ALERT               BITMAP  DISCARDABLE     "..\\res\\alert.bmp"
+IDB_UNCHECKED_BIG       BITMAP  DISCARDABLE     "..\\res\\unchecked_big.bmp"
+IDB_UNCHECKED_RIGHT_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_right_big.bmp"
+IDB_CHECKED_WRONG_BIG   BITMAP  DISCARDABLE     "..\\res\\checked_wrong_big.bmp"
+IDB_UNCHECKED_WRONG_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong_big.bmp"
+IDB_UNCHECKED_CHANGE_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_change_big.bmp"
+IDB_CHECKED_CHANGE_BIG  BITMAP  DISCARDABLE     "..\\res\\checked_change_big.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GROUP_MEDIAPLAYER   "MediaPlayer Functions"
+    IDS_MEDIAPLAYER_LICENSES "Do not acquire licenses automatically"
+    IDS_MEDIAPLAYER_SEND_GUID "Disable identification of player by websites"
+    IDS_MEDIAPLAYER_CODECS  "Disable automatic codec download"
+    IDS_GROUP_ERROR_REPORTS "Error reports"
+    IDS_ERROR_REPORTS_SEND  "Disable error reports"
+    IDS_REMOTEDESKTOP       "Explorer: Turn off remotedesktop support"
+    IDS_GROUP_INTERNET_EXPLORER "Internet Explorer"
+    IDS_IE_SCHEDULED_UPDATES "Disable scheduled updates"
+    IDS_IE_CHECK_4_UPDATES  "Disable automatic updates"
+    IDS_TIME_SYNC           "Don't synchronize with internet time"
+    IDS_IE_INTEGRATED_AUTHENTICATION 
+                            "Disable integrated Windows authentification"
+    IDS_REGDONE             "Set RegDone=1"
+    IDS_GROUP_SERVICES      "Services"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SERVICES_ERROR_REPORTS "Disable error-report service"
+    IDS_SERVICES_AUTO_UPDATES "Disable auto-updates service"
+    IDS_SERVICES_TIMESERVER "Disable time server service"
+    IDS_GROUP_MESSENGER     "Microsoft Messenger"
+    IDS_MESSENGER_AUTOSTART "Disable autostart"
+    IDS_MESSENGER_DEINSTALL "Uninstall completely"
+    IDS_SUPPORTUSER         "Remove MS-support user"
+    IDS_GROUP_REGSVR        "Regsvr32 dll's"
+    IDS_REGSVR_REGWIZC      "Regwizc.dll"
+    IDS_REGSVR_LICDLL       "licdll.dll"
+    IDS_SERVICES_TASKSCHEDULER "Disable task-scheduler service"
+    IDS_ALEXA               "Delete Alexa registry entry"
+    IDS_BALLOON_TIPS        "Don't show BalloonTips anymore"
+    IDS_CLEAR_PAGEFILE      "Clear pagefile at shutdown"
+    IDS_OE_START_MESSENGER  "Don't start MS Messenger with Outlook Express"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GROUP_MISCELLANOUS  "Miscellaneous Settings"
+    IDS_OXP_ERRORREPORT     "OfficeXP: Don't send error reports"
+    IDS_FAST_SHUTDOWN       "Enable fast shutdown"
+    IDS_SERVICES_UPNP       "Disable UPNP Service (Universal Plug and Play)"
+    IDS_MAX_CONNECTIONS     "Increase MaxConnectionsPerServer to 10"
+    IDS_REGSVR_ZIPFLDR      "Disable ZIP functionality"
+    IDS_ABOUT               "(c)2001 Christian Taubenheim\nThere's no warranty should this program fail for you! I tested as much as I could, but\nsince this is a one-man project there can be errors. This tool is always free of\ncharge.\n\nI'd like to thank all the people at the cosmocon-Userboard, you guys really rock!\nVisit my website http://www.xp-AntiSpy.org for updates.\n\nI'd like to dedicate this program to a very close friend and my programming mentor\ncalled .....'AWEX'.....\n\nThis program was written in Visual C++ and I enjoyed it!!!!! -chris-"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SERVICES_MSGSRV     "Disable Messaging Service."
+    IDS_IE_FORM_SUGGEST     "Do not autosuggest webforms and passwords anymore."
+    IDS_IE_UPLDDRVINFO      "Avoid possible file deletion through malicious websites."
+    IDS_MP9_ADDMEDIATOLIB   "Don't add media data to the Media library."
+    IDS_MP9_RETRIEVEMETADATA "Don't get meta data from the internet."
+    IDS_MP9_USAGETRACKING   "Don't send information about player usage to microsoft."
+    IDS_MP9_SAVEMRU         "Don't save data and url's in the most recently used file."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFO_ALEXA          "The ALEXA-key is a browser add-in which collects personal data about your surfing habits. For more info go to the producers of ALEXA (www.alexa.com)."
+    IDS_INFO_MEDIAPLAYER_LICENSES 
+                            "Sometimes Mediafiles require Licenses for Playback. This prevents the mediaplayer from automatically downloading them. Since it's not known what information is transferred and to whom, it's recommended to disable this setting. The mediaplayer will still continue to work."
+    IDS_INFO_MEDIAPLAYER_SEND_GUID 
+                            "This prevents this Computer from being identified by its GlobalUniqueID, via the mediaplayer."
+    IDS_INFO_MEDIAPLAYER_CODECS 
+                            "This keeps the mediaplayer from automatically downloading the codecs it needs, from the internet."
+    IDS_INFO_ERROR_REPORTS_SEND 
+                            "Disables the automatically generated error reports sent to Microsoft, in case your computer crashes."
+    IDS_INFO_IE_SCHEDULED_UPDATES 
+                            "This disables the ability to execute scheduled updates by the InternetExplorer6."
+    IDS_INFO_IE_CHECK_4_UPDATES 
+                            "This setting keeps the IE6 from automatically connecting to an MS server and asking for updates."
+    IDS_INFO_IE_INTEGRATED_AUTHENTICATION 
+                            "This setting disables the ability for the current user to be identified over the internet."
+    IDS_INFO_SERVICES_ERROR_REPORTS 
+                            "This disables the service, which is needed to send the error reports."
+    IDS_INFO_SERVICES_AUTO_UPDATES 
+                            "This disables the service, which is needed to start the automatic updates. Note that this service must be enabled if you want to update your system from the net. So if do a windows update (and you should do this once in a while), enable this service by right clicking the entry and selecting 'reset entry'. After a successful update you can disable this service again."
+    IDS_INFO_SERVICES_TIMESERVER 
+                            "This disables the service, which is needed if you plan to synchronize your system time with a server on the internet, if you plan to do this, you can change the time server to be connected to in the 'special' menu."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFO_SERVICES_TASKSCHEDULER 
+                            "If you don't plan on running programs scheduled in the background, just deactivate this service. It's not security relevant, but saves some resources on your machine. If you use software from Norton or the BootVis from MS, you better leave this setting as it is, because otherwise it may lead to difficulties. On Windows Vista the Task Sheduler is needed by the System Restore feature."
+    IDS_INFO_MESSENGER_AUTOSTART 
+                            "The MS Messenger is automatically started when Windows starts, to prevent this, you can choose to deactivate this setting."
+    IDS_INFO_MESSENGER_DEINSTALL 
+                            "If you don't want to use the MS Messenger, simply get it uninstalled. If Windows XP asks for a restart, just click 'NO'."
+    IDS_INFO_SUPPORTUSER    "This will remove the automatically created support-user account"
+    IDS_INFO_REGSVR_REGWIZC "Disable the RegistrationWizardControl, this doesn't affect you WPA. Through this control, it is possible to check your registration data. So it's recommended to disable this Control."
+    IDS_INFO_REGSVR_LICDLL  "This is a main program in the WPA. Disabling this, means you can't start the WPA anymore until you re-enable this. This is recommended only if you have already activated your XP."
+    IDS_INFO_REMOTEDESKTOP  "If you don't plan on using the remotedesktop ability, disable this feature."
+    IDS_INFO_REGDONE        "This setting pretends that your online registration has already been done. Don't misunderstand, this doesn't affect the WPA."
+    IDS_INFO_TIME_SYNC      "Your computer's clock won't be synchronized with time servers on the internet. If you intend to do so, simply reset this setting and change the time server via the 'special' menu in this program."
+    IDS_INFO_BALLOON_TIPS   "Disables the BalloonTips coming up for many reasons like when you got connected to the internet, when there's too little free memory on the HDD..."
+    IDS_INFO_CLEAR_PAGEFILE "Deletes the system's pagefile on every shutdown"
+    IDS_INFO_OE_START_MESSENGER 
+                            "Prevents the MS Messenger from being started every time Outlook Express starts. If you plan to deinstall the MS Messenger, just ignore this setting."
+    IDS_INFO_OXP_ERRORREPORT 
+                            "If an OfficeXP application crashes, XP does not try to send an error report"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFO_FAST_SHUTDOWN  "If you tell XP to shutdown, this setting can speed up the process of shutting down."
+    IDS_INFO_SERVICES_UPNP  "In the past there was a security related problem with the UPNP service. If you want to know more about UPNP, visit http://support.microsoft.com/kb/323713/EN-US/"
+    IDS_INFO_MAX_CONNECTIONS 
+                            "Normally your Internet Explorer limits the maximum number of open connections on one server to 4. If you're downloading 4 files from a server, and you want to surf its websites, nothing happens coz you have already reached the maximum number of connections. This setting increases the limit to 10."
+    IDS_INFO_REGSVR_ZIPFLDR "This setting disables the built-in ZIP functionality. If you use tools like WinRAR, you might want to open zip files with this tool, and don't need the XP functionality anymore. If so, select this setting, and activate the zip-association in WinRAR->options->settings->integration."
+    IDS_INFO_SERVICES_MSGSRV 
+                            "This service is used to send small messages via 'net send {destination} {message}' through the network. This service can be misused by some applications to spread spam. So if you do not intend to use the 'net send' thing, simply disable this service."
+    IDS_INFO_IE_FORM_SUGGEST 
+                            "When activating this setting, the Internet Explorer won't cache your user names, passwords and other entries you entered in webforms anymore. Enabling/disabling this setting only concerns the actual logged-in user."
+    IDS_INFO_IE_UPLDDRVINFO "You should deactivate this setting, because otherwise it will be possible, with the help of the Internet Explorer and the help and support center, to delete files on your system. This only applies to WindowsXP without service pack 1. Details: Through a malicious link to the file 'uplddrvinfo.htm' someone can delete entire directories on your system, this problem is fixed within service pack 1. To prevent this vulnerability, the file 'uplddrvinfo.htm' is renamed to 'uplddrvinfo.htm.bak'. More info at:http://www.google.de/search?q=uplddrvinfo.htm"
+    IDS_INFO_MP9_ADDMEDIATOLIB 
+                            "If this Setting is disabled, the media player doesn't add the names of the files you viewed to the media library. It is possible that this information can be retrieved via the internet."
+    IDS_INFO_MP9_RETRIEVEMETADATA 
+                            "If this Setting is disabled, the following information won't be retrieved from the internet anymore. Media information on CDs and DVDs / Update missing information of local music data on the web."
+    IDS_INFO_MP9_USAGETRACKING 
+                            "If this Setting is disabled, no information about your daily usage with the media player will be sent to Microsoft. Unfortunately you can't be sure that Microsoft uses this data only to improve their software nor do we know what information is transferred. So: Better safe than Sorry ;-)"
+    IDS_INFO_MP9_SAVEMRU    "If this Setting is disabled, the viewed media file names aren't stored in the most recently used file anymore. This information is not published on the internet, but anyone can see which movies you watched if he uses the same computer account."
+    IDS_INFO_IE_JAVASCRIPT  "This setting disables the Javascript ability of the Internet Explorer. Note that many internet pages use javascript, but if it's enabled it can be used to fake the information you see (like a faked ebay profile) or even harm your computer if a security exploit gets discovered.\nMy recommendation: if you visit webpages you don't know, just disable javascript, you can put it back on later."
+    IDS_INFO_IE_ACTIVEX     "This setting disables the ability of executing ActiveX controls through the Internet Explorer. If you plan on launching a windows update via your webbrowser you'll have to enable ActiveX. There are a few other webpages that use ActiveX controls but in many cases ActiveX controls want to install some sort of dialer on your machine. So it's better to disable this feature and enable it when you're sure about the content."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GROUP_INFO_MEDIAPLAYER "MS Mediaplayer"
+    IDS_GROUP_INFO_ERROR_REPORTS "Error reports"
+    IDS_GROUP_INFO_MISCELLANOUS "Miscellaneous settings"
+    IDS_GROUP_INFO_INTERNET_EXPLORER "Microsoft Internet Explorer settings"
+    IDS_GROUP_INFO_SERVICES "Services are programs, running in the background. There are a lot of them if you look at 'my computer'->administration->services. The services below are programs that can automatically connect to the internet, without you perceiving it. These Services will be disabled.\nIf you wanna let the system update your WindowsXP again, just right-click the setting and 'undo' it."
+    IDS_GROUP_INFO_MESSENGER 
+                            "The MS Messenger comes preinstalled with your system."
+    IDS_GROUP_INFO_REGSVR   "RegSvr32.exe is a systemprogram that can register or unregister programs in the registry."
+    IDS_IE_JAVASCRIPT       "Disable Javascript"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_IE_ACTIVEX          "Disable ActiveX Controls"
+    IDS_IE_POPUP_BLOCKER    "Enable pop-up blocking"
+    IDS_INFO_IE_POPUP_BLOCKER 
+                            "This setting enables the built-in pop-up blocker for your Internet Explorer.\n If this setting is enabled, it's no longer possible for websites to open new Internet Explorer windows by themselves. In most cases this behaviour was used to open little windows showing annoying advertisements."
+    IDS_FIREWALL            "Disable integrated Firewall"
+    IDS_INFO_FIREWALL       "The integrated firewall blocks incoming connections on your network interface. All outgoing connections are allowed and cannot be blocked. For blocking outgoing connections as well, you need to have a 3rd party application firewall. There is a free firewall for personal use available at http://www.kerio.com ."
+    IDS_SERVICES_FIREWALL   "Disable firewall/connection sharing service"
+    IDS_INFO_SERVICES_FIREWALL 
+                            "Deactivates the firewall service, through which your computer can be protected against incoming connections. This service also has to be active if your computer is used as a gateway for other computers connecting to the internet."
+    IDS_SERVICES_SEC_CTR    "Disable Security Center"
+    IDS_INFO_SERVICES_SEC_CTR 
+                            "Disables the security center, which resides in the system tray and notifies you about missing virus protection or a deactivated firewall. I think this service is not needed all the time and only occupies memory. So decide for yourself if you want to keep this service running."
+    IDS_SHOW_FILE_EXT       "Also show suffixes of known files"
+    IDS_INFO_SHOW_FILE_EXT  "Normally the extensions of a file (like .bmp, .pdf, .doc ...) are not shown in the file explorer. This makes it possible, for example, to make executable files look like innocent bitmaps. Sometimes it's difficult to recognise this, that's why extensions should be visible on all files. Imagine someone renames a vb script file 'hollywood.bmp.vbs'. The file explorer would only show 'hollywood.bmp' if this setting was not enabled, and maybe you would think this is a nice picture of hollywood because it has the extension .bmp. Got the point?\nThat's why it's better if all extensions are shown."
+    IDS_BTN_APPLY           "Apply Settings"
+    IDS_INFO_O2K3_ERRORREPORT 
+                            "If an Office 2003 application crashes, it does not try to send an error report to Microsoft."
+    IDS_O2K3_ERRORREPORT    "Office 2003: Don't send error reports."
+    IDS_PATCHED             "Already Patched:"
+    IDS_NO                  "No"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_YES                 "Yes"
+    IDS_UNKNOWN_BUILD       "Unknown Build number of the file, unable to patch.\nPlease Notice that this function is only active in\n Service Pack 2 for Windows XP, and\nService Pack 1a for Windows 2003."
+    IDS_AGREE               "Yes, I got it."
+    IDS_CONNECTION_LIMIT_WARNING 
+                            "Attention!\nThe connection limit wasn't established by Microsoft without a reason. It should prevent rapid spreading of viruses and worms if a computer gets infected. That's why they limited it to 10 connections at a time... Some applications, like, for example, filesharing tools, can't unfold their capacity when the maximum connection limit is too low. Please don't raise the connection limit if you don't really need it. Look into the event viewer (start->run 'Eventvwr.msc'->system). When you see entries with the event ID 4226, the system is telling you that the connection limit has been reached.\n!!!! Note: Changes to the connection limit are made entirely at your own risk!!!!"
+    IDS_PATCHED_FILES       "The following files have been patched:\n"
+    IDS_RESET_FILES         "The following files have been restored:\n"
+    IDS_MAX_CONNS           "Max. Connections:"
+    IDS_UNLIMITED_CONNS     "unlimited"
+    IDS_CORRUPT_VALUE       "You have entered an invalid value!\nValid ones are 10-16777214."
+    IDS_MEDIAPLAYER_UPDATE  "No automatic updates."
+    IDS_INFO_MEDIAPLAYER_UPDATE 
+                            "Prevents the Mediaplayer from automatically updating via the internet."
+    IDS_HIDE_IN_NETWORK     "Hide Computer in Network."
+    IDS_INFO_HIDE_IN_NETWORK 
+                            "Through this setting the computer won't be shown in the network neighbourhood. So no one can identify your computer unless he knows its address or name."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DENY_REGEDIT        "Deny starting regedit.exe"
+    IDS_INFO_DENY_REGEDIT   "Prevents the logged-on user from starting the registry editor and so editing the registry."
+    IDS_SCRIPTING_HOST      "Deactivate Scripting Host."
+    IDS_INFO_SCRIPTING_HOST "Deactivates the Scripting Host, which is responsible for executing files with the following suffixes: *.js,\n*.jse, *.vbe, *.vbs, *.wsf, *.wsh. Through these script files, malware is often distributed."
+    IDS_SHOW_LAST_USERNAME  "Don't show last logged-on user name."
+    IDS_INFO_SHOW_LAST_USERNAME 
+                            "If this computer is attached to a domain, or the log-in dialog is switched to Windows 2000 mode, the edit field 'username' won't show the last successful logged-in user name anymore."
+    IDS_IE_WATSON           "No error reports through the Internet Explorer."
+    IDS_INFO_IE_WATSON      "If the Internet Explorer causes an error, it will not try to send the error information to Microsoft."
+    IDS_IE_CLEAN_CACHE      "Clean website cache on shutdown."
+    IDS_INFO_IE_CLEAN_CACHE "On shutdown of the system, the created cache files will be erased."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CD_AUTORUN          "No AutoPlay "
+    IDS_INFO_CD_AUTORUN     "Through this setting it will be prevented that, if you insert a CD into the computer, the computer will look for existing start-up files. This also applies for all connected drives. Further information: http://en.wikipedia.org/wiki/AutoRun"
+    IDS_CLEAN_RECENT_DOCS   "Clean history of recently used documents."
+    IDS_INFO_CLEAN_RECENT_DOCS 
+                            "On shutdown of the system, all entries in start->recent documents will be erased. So the history of used documents won't be visible over multiple sessions."
+    IDS_PROFILE_SAVE        "Save Profile as"
+    IDS_PROFILE_LOAD        "Select Profile"
+    IDS_PROFILE_EXISTS      "This profile already exists.\nOverwrite it?"
+    IDS_PROFILE_DELETE      "Do you really want to delete the selected profile?"
+    IDS_PROFILE_DELETE_ALL  "Do you really want to delete all profiles?"
+    IDS_NO_HELP             "The help file xp-AntiSpy.chm couldn't be found."
+    IDS_MP_START_IN_MEDIA_GUIDE "Don't start player in media guide."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFO_MP_START_IN_MEDIA_GUIDE 
+                            "Prevents the media player from connecting to the startpage on the internet."
+    IDS_TIME_SERVER_START   "Applying a time server will activate the time server service\n and time synchronization. Do you want this?"
+    IDS_URL_SUFFIX          "Always show *.url suffixes"
+    IDS_PIF_SUFFIX          "Always show *.pif suffixes"
+    IDS_SHC_SUFFIX          "Always show *.scf suffixes"
+    IDS_INFO_URL_SUFFIX     "Through this setting, the suffixes of files ending with .url will always be displayed to the user. See setting 'Always show *.pif suffixes' for more info."
+    IDS_INFO_PIF_SUFFIX     "Through this setting, the suffixes of files ending with .pif will always be displayed to the user. These types of file can contain executable code and someone could hide one of these suffixes as follows: important.txt.pif. You only get displayed important.txt. This can mislead you, thinking this is a text file. If you open this file, the contained information will be executed and can harm your computer."
+    IDS_INFO_SHC_SUFFIX     "Through this setting, the suffixes of files ending with .scf will always be displayed to the user. See setting 'Always show *.pif suffixes' for more info."
+    IDS_LNK_SUFFIX          "Always show *.lnk suffixes"
+    IDS_INFO_LNK_SUFFIX     "Through this setting, the suffixes of files ending with .lnk will always be displayed to the user. See setting 'Always show *.pif suffixes' for more info."
+    IDS_SHB_SUFFIX          "Always show *.shb suffixes"
+    IDS_INFO_SHB_SUFFIX     "Through this setting, the suffixes of files ending with .shb will always be displayed to the user. See setting 'Always show *.pif suffixes' for more info."
+    IDS_CMD_LINE_HELP       "xp-AntiSpy command line help"
+    IDS_CMD_LINE_SYNTAX     "Syntax: xp-AntiSpy.exe [+|-n] ..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CMD_LINE_ENABLE     "+ means that the setting will be activated (enabled)"
+    IDS_CMD_LINE_DISABLE    "- means that the setting will be deactivated (disabled)"
+    IDS_CMD_LINE_N          "Where n can be:"
+    IDS_CMD_LINE_EXAMPLE    "Example: xp-AntiSpy.exe -1 -2 -3 -4 -5 -6 -11"
+    IDS_DONT_REPORT_INFECTION 
+                            "Don't report to Microsoft if your system was infected by malware"
+    IDS_INFO_DONT_REPORT_INFECTION 
+                            "This means that when you use the Microsoft Removal Tool for malware (http://www.microsoft.com/security/malwareremove/default.mspx), it won't inform Microsoft if a malicious software was detected on your system. This setting doesn't change anything of the functionality of this software."
+    IDS_CMD_LINE_CONNECTION_LIMIT 
+                            "with l<countl> you can change the connection limit of the network,"
+    IDS_CMD_LINE_CONNECTION_LIMIT2 
+                            "where <count> should be a number between 1 and 4096"
+    IDS_UNCHECKED           "Inactive: "
+    IDS_CHECKED             "Active: "
+    IDS_UNCHECKED_RIGHT     "Suits the profile (Inactive): "
+    IDS_CHECKED_RIGHT       "Suits the profile (Active): "
+    IDS_UNCHECKED_WRONG     "Doesn't suit the profile (Inactive): "
+    IDS_CHECKED_WRONG       "Doesn't suit the profile (Active): "
+    IDS_UNCHECKED_CHANGE    "Turns inactive after applying: "
+    IDS_CHECKED_CHANGE      "Turns active after applying: "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_RESTRICTANONYMOUS   "Restrict anonymous network access"
+    IDS_INFO_RESTRICTANONYMOUS 
+                            "Restricts network access to your computer by blocking every anonymous access until explicitly given. Only use this setting if your computer does not reside in a local area network where files or information are shared. If your computer is connected only to the internet you can activate this setting. More info: http://support.microsoft.com/kb/q246261"
+    IDS_NONETCRAWL          "Disable network crawling"
+    IDS_INFO_NONETCRAWL     "When this setting is active, the operating system will no longer search the network at systemstart or when you open 'my network places'. If your computer is not part of a local area network you can activate this setting. Info:http://support.microsoft.com/kb/q276322"
+    IDS_GROUP_NETWORK       "Network"
+    IDS_MEDIAPLAYER_BLOCKUNINSTALL 
+                            "Allow uninstallation of the Windows Mediaplayer"
+    IDS_INFO_MEDIAPLAYER_BLOCKUNINSTALL 
+                            "Allows you to uninstall the Windows Mediaplayer.\nYou then can uninstall it via start->system control->software->Add/Remove Windows components."
+    IDS_SERVICES_RPCLOCATOR "Disable the RPC Locator Service"
+    IDS_INFO_SERVICES_RPCLOCATOR 
+                            "http://www.microsoft.com/technet/security/bulletin/ms03-001.mspx"
+    IDS_SERVICES_INDEXER    "Disable the indexing service"
+    IDS_INFO_SERVICES_INDEXER 
+                            "The indexing service runs as a background task on your computer and searches and indexes all files for a fulltext search if needed. If you dont need this feature you can safely disable this service."
+    IDS_NOLMHASH            "Do not generate Lan Manager Hashes"
+    IDS_INFO_NOLMHASH       "If you use a password for you Windows operating system with less than 15 characters, the system also stores a Lan Manager password hash for backwards compatibility with Windows 95/98. These hashes are known for its weakness and if you do not reside in a network with Windows 95/98 computers you can safely turn off this setting.\nAfter applying this setting you need to restart your computer and change your password."
+    IDS_GROUP_INFO_NETWORK  "This category contains all the network related settings."
+    IDS_LEGEND_TITLE        "Symbol Reference"
+    IDS_LEGEND_UNCHECKED    "If there's no checkmark inside the icon, it means that this setting is not active. So if you read something like 'Disable the Indexing service'' then it means that the indexing service currently is running on your computer. No checkmark inside the icon also shows you that this is the default system state of the setting. If the checkmark is shown, it means that the indexing service is not running. "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_LEGEND_UNCHECKED_RIGHT 
+                            "The green-colored icon indicates entry states that are just like the currently selected profile wants them to be. The checkmark in the icon shows the state of this setting as it is right now. So whenever you see a green icon, it signalizes an OK to this setting."
+    IDS_LEGEND_UNCHECKED_WRONG 
+                            "The red-colored icon indicate entry states that do not confirm to the selected profile and will be changed to the opposite state when the 'Apply Settings' button is pressed. The checkmark in the icon shows the state of this setting as it is right now."
+    IDS_LEGEND_UNCHECKED_CHANGE 
+                            "The orange color indicates a manually changed and not yet applied setting. This entry will change its state to the displayed state after the 'Apply Settings' button is pressed. Unlike the other icons the checkmark displays the state of this setting after pressing the 'Apply Settings' button."
+    IDS_PROFILE_FILEDIALOG  "xp-AntiSpy Profiles"
+    IDS_NO_WGA_CHECK        "Disable WGA check at logon"
+    IDS_INFO_NO_WGA_CHECK   "If you see this setting it means you installed the WGA check utility through a windows update. This check utility contacts the microsoft website everytime you logon to your Windows OS. If you don't want that to happen, disable this setting. If you want to get this setting back to work you have to install the WGA update again."
+    IDS_CL_NOT_POSSIBLE     "Patch not available"
+    IDS_BACKUP_CREATE       "Create backup of tcpip.sys"
+    IDS_BACKUP_DELETE       "Delete selected backup"
+    IDS_BACKUP_RESTORE      "Restore selected backup file"
+    IDS_INFO_DO_NOT_ALLOW_IE70 
+                            "By activating this setting, you tell the Windows Update to not automatically install the Internet Explorer 7 at your next Windows Update. Generally I suggest you to always get the latest version of the Internet Explorer. Whether you use it to browse the Internet or not, some programs on your computer might use it."
+    IDS_DO_NOT_ALLOW_IE70   "Disable automatic installation of the Internet Explorer 7"
+    IDS_IE_PHISHING_FILTER  "Activate phishing filter "
+    IDS_INFO_IE_PHISHING_FILTER 
+                            "The phishing filter should protect you from potential risks of falling for a phishig attack while surfing in the internet.Further information on Phishing: http://en.wikipedia.org/wiki/Phishing"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ERROR               "Error"
+    IDS_SERVICES_WINDOWS_DEFENDER "Enable Windows Defender System Service"
+    IDS_INFO_SERVICES_WINDOWS_DEFENDER 
+                            "The Microsoft Windows Defender is a software that should protect you from spyware and other malicious software. Generally it is recommended to enable this software unless you have another Software running, which does the same."
+    IDS_LEGEND_LOCKED       "If there's a little lock symbol over the icon, it means this setting is read only and your computer account has not the sufficient permission to change this setting. Usually you need administrator permission for that. To start the xp-AntiSpy with Administrative rights, select 'Special->Administrative mode' (only on Windows Vista)."
+    IDS_TRANSLATOR          "English translation by Christian Taubenheim"
+    IDS_TRANSLATOR_LINK     "mailto:translator@xp-antispy.org"
+    IDS_INFO_WMP_PREVENT_LIBRARY_SHARING 
+                            "If this setting is active, the media library of the Windows Media Player can not be shared on the network."
+    IDS_WMP_PREVENT_LIBRARY_SHARING "Prevent sharing of media library"
+    IDS_CREATE_DEFAULT_PROFILE 
+                            "It looks like you are starting xp-AntiSpy for the first time.\r\nShould I create a profile of your actual system settings?\r\nThis makes it possible to always see how the settings have been before the use of xp-AntiSpy and you can also return to these settings."
+    IDS_LATER               "Ask later"
+    IDS_NEVER               "No, do not ask again."
+    IDS_STANDARD_PROFILE    "System profile "
+    IDS_READER_DISABLE_JS   "Disable Java Script in the PDF-Reader"
+    IDS_INFO_READER_DISABLE_JS 
+                            "This setting disables the execution of Java Script embedded in PDF documents which are opened by the Adobe Acrobat Reader software. You can find more info on http://netzreport.googlepages.com/how_to_use_adobe_read_no_javascript.html and http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=656"
+    IDS_GROUP_TWEAKS        "Tweaks"
+    IDS_GROUP_INFO_TWEAKS   "These are miscellaneous Settings, which are been sent to me by other users of the xp-AntiSpy. These settings are also my favorites and I always use them when install a Windows operation system. I think some of these settings can also be useful for you."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TWEAK_COMMAND_HERE  "Command line prompt in the context menu"
+    IDS_INFO_TWEAK_COMMAND_HERE 
+                            "This setting is mainly useful for users who often work on the command line (Also known as 'DOS prompt'). If this setting is active, you'll find an additional entry in the context menu of the file explorer which will easily open a command promp in the selected folder for you."
+    IDS_TWEAK_SVC_WmdmPmSN  "Disable service for serial numbers of mobile media"
+    IDS_TWEAK_SVC_SUPPORT_CTR "Disable Help and Support Service"
+    IDS_OPEN_COMMAND_PROMPT "Open commandline prompt here"
+    IDS_INFO_TWEAK_SVC_WmdmPmSN 
+                            "This service is only needed for the use of DRM restricted content of removable MP3 and media players. I you not used any DRM restricted contents you can disable this service to save memory on you computer."
+    IDS_INFO_TWEAK_SVC_SUPPORT_CTR 
+                            "This service makes the help and support center available via ""Start->Help and Support"" available. Usually this service is not needed to always run in the background. But for the not so experienced users I suggest that they leave this service running."
+    IDS_TWEAK_DEL_CTFMON    "Disable ctfmon.exe"
+    IDS_INFO_TWEAK_DEL_CTFMON 
+                            "The process ctfm.exe is responsible for language settings of the system. Normally this process runs in the background but isn't used at all.\nThis setting replaces the file ctfmon.exe with a dummy, removes the autostart entry and unregisters the libraries 'msctf.dll' and 'msimtf.dll'. Through this it's impossible for the system to start this process again.\nOf course this setting can be undone at any time."
+    IDS_TWEAK_CLEANUP_WIZ   "Disable the Desktop Cleanup Wizard"
+    IDS_INFO_TWEAK_CLEANUP_WIZ 
+                            "Usually every 60 days, the system will show up a dialog which offers to clean up unsused files on the Desktop.\nThrough this setting it's possible to disable this behaviour."
+    IDS_TWEAK_WINUPDATE_NO_DRIVER 
+                            "Dont Search Windows Update for device drivers"
+    IDS_INFO_TWEAK_WINUPDATE_NO_DRIVER 
+                            "If you connect hardware to the system for which the device driver is not already installed, you always will be asked it you want to look for the driver in the Windows Update on the web.\nActually it never happened to me, that a adequate device driver was found, so I consider this question as redundant. I you do not want to get this question on every newly arttached hardware device, you can disable this setting."
+    IDS_TWEAK_WEBSERVICE    "Disable File Association Web Service"
+    IDS_INFO_TWEAK_WEBSERVICE 
+                            "If you try to open files which are unknown to the system, you will normally be asked to open a web service and look for a adequate program to open with.\nMany users including me consider this dialog useless thats why it can be disabled ia this setting"
+    IDS_TWEAK_BSOD_AUTOREBOOT "Disable automatic reboot on system crashes"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFO_TWEAK_BSOD_AUTOREBOOT 
+                            "If the system crashes in case of a critical error, the famous 'Blue Screen of Death' is displayed for a very short time and then the system automatically restarts.\nBut in some cases the 'Blue Screen' can contain viable information about the cause of the crash, therefore the automatic reboot of the system can be disable via this setting."
+    IDS_TWEAK_DEV_MANAGER   "Open the device manager via 'My Computer'"
+    IDS_INFO_TWEAK_DEV_MANAGER 
+                            "By enabling this setting there will be an additional entry in the context menu of 'My Computer' that directly opens the device manager."
+    IDS_OPEN_DEVICE_MANAGER "Device Manager..."
+    IDS_TWEAK_NO_WINTOUR    "Do not offer the Windows Tour anymore"
+    IDS_INFO_TWEAK_NO_WINTOUR 
+                            "On a freshly installed system there will be the offer in the system tray to take the 'Windows Tour'. Many users find this quite annoying. Through enabling this setting, you can avoid this offer."
+    IDS_NET_NO_RECENT_DOCS  "Avoid automatic links in the network neighbourhood"
+    IDS_INFO_NET_NO_RECENT_DOCS 
+                            "If network shares are used without assigning the to a drive letter, windows will automatically cache this connection and display this further on in the network neighbourhood. This is to ease the recovery of once used connections. But it also can be a security risk, since any one logged into the computer can see where you've been."
+    IDS_NO_THUMBNAIL_CACHE  "Do not cache thumbnails"
+    IDS_INFO_NO_THUMBNAIL_CACHE 
+                            "Normally windows creates thumbnails for viewerd images in the file explorer in a file named Thumbs.db.\nThis is to speed up the display of a preview. In case it's not needed just enable this setting."
+    IDS_NO_SEARCH_ASSISTANT "Disable the search assistant"
+    IDS_INFO_NO_SEARCH_ASSISTANT 
+                            "This setting avoid that the search assistant is displayed if you intent to search for files. Instead the classical search interface is shown."
+    IDS_DISABLE_UAC         "Disable UAC"
+    IDS_INFO_DISABLE_UAC    "Windows Vista introduced the user account control (UAC) . This is to prevent changes in the system without knowledge and permission of the user. Thus if a program desires administrative rights, the user get displayed a dialog if he wants to permit this elevation of rights. Experienced users may get bothered by these permanent qeries. Thats why through this setting you can disable the UAC. But be warned!! Only disable the UAC if you really know that you are experienced and have your computer unter full control. Otherwise this may open security leaks inside your system."
+    IDS_IE_NO_SQM           "Do not take part in the Customer Experience Improvement Program from Microsoft."
+    IDS_INFO_IE_NO_SQM      "This disables your active participation in this program. After restarting your browser, no more usage information will be reported to Microsoft over the internet. Find more info at: http://www.microsoft.com/products/ceip/EN-US/default.mspx"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_IE_SUGGESTED_SITES  "Disable 'Suggested Sites'."
+    IDS_INFO_IE_SUGGESTED_SITES 
+                            "This deactivates the 'Suggested Sites' feature of the Internet Explorer. This feature is a online service provided by Microsoft, which reads you browser history and suggests similar web pages based on that. If you tend to use this feature, you should now that you personal browser history is transferred over the internet. This means, it is possible that anyone who has access to these data, can also see what websites you visited before. For privacy reasons I would suggest to disable this feature. But it's your choice at last."
+    IDS_NO_UNREAD_MAIL      "Do not display number of unread mails on the log in screen"
+    IDS_INFO_NO_UNREAD_MAIL "This settings disables that Windows shows the number of unread mails in your inbox on the log in screen."
+    IDS_BTN_SEARCH          "Search"
+    IDS_HINT_SEARCH         "Please enter search terms"
+    IDS_CLIPBOARD_COPY      "Copy into clipboard"
+    IDS_PROFILE_ERROR       "Cannot import this profile. It contains no valid settings."
+    IDS_NO_VDM              "Deny access to 16-Bit-Applications"
+    IDS_INFO_NO_VDM         "A recently discovered vulnerability in most of the Windows operating systems can lead to administration rights for the exploiting malware. If you do not need to run old 16-Bit applications, then its more safe to activate this setting to prevent that someone can exploit this vulnerability on your system."
+    IDS_INFO_NO_TEREDO      "By setting this option you disable the Teredo adapter. For more information visit http://en.wikipedia.org/wiki/Teredo_tunneling"
+    IDS_NO_TEREDO           "Disable TEREDO adapter"
+    IDS_INFO_NO_ISATAP      "By setting this setting, the ISATAP adapter is disabled. The ISATAP adapter is similar to the Teredo adapter and enables communication with IPv6 networks. Normally, you don't need this virtual adapter and it can be disabled. Further information in English: http://en.wikipedia.org/wiki/ISATAP"
+    IDS_NO_ISATAP           "Disable ISATAP adapter"
+    IDS_INFO_NO_NCSI        "To determine whether the computer has an Internet connection, Windows contacts on any change of network state the server www.msftncsi.com and tries to read the file ncsi.txt.\nIf this setting is disabled, then in the System Tray Network status with 'No internet access' (yellow exclamation mark) is displayed even though Internet access is possible."
+    IDS_NO_NCSI             "Disable Network Connectivity Status Indicator"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NO_ROOT_CERT        "Disable automatic update of the root certificates"
+    IDS_INFO_NO_ROOT_CERT   "Microsoft tries to verify the software publish of each downloaded application, therefore certificates are needed. If a certificate is missing, the operating system automatically tries to download this certificate from the microsoft update server. If this setting is activated and the needed certificate is not locally available the system will not download the missing certificate, it will just show you 'Unknown Publisher'. You also can download the certificates manually from the microsoft server via the keyword 'KB931125'."
+    IDS_CERT_REVOCATION     "Check for revoked server certificates"
+    IDS_CERT_TRUST          "Check for publisher's certificate revocation"
+    IDS_NO_HTTPS_CACHE      "Do not cache HTTPS web sites"
+    IDS_INFO_CERT_REVOCATION 
+                            "Criminals could gather a valid certificate and pretend that they are the publisher of your bank's website. To prevent such abuse, there are certificate revocation lists. Once this abuse gets detected, the certificate gets blacklisted and the user will be warned about that."
+    IDS_INFO_CERT_TRUST     "Windows checks downloaded and signed files if this certificate has been withdrawn. For this purpose, it establishes a connection to crl.usertrust.com. Setting this option causes the connection not to be established. Another positive side effect is that the file is executed virtually instantaneously. Although this setting is done in Internet Explorer, it has the greatest effect on the File Explorer."
+    IDS_INFO_NO_HTTPS_CACHE "HTTPS web pages are pages that are transmitted encrypted between the Web server and your PC. This option will prevent that parts of the encrypted web page are cached on your PC and to the fact someone, possibly sensitive content, passes. The Firefox browser caches no standard SSL encrypted pages."
+    IDS_NO_FORCEREBOOT      "Do not force a reboot after Windows Update"
+    IDS_INFO_NO_FORCEREBOOT "This setting disables that Windows forces your system to be rebooted if you did a Windows Update."
+    IDS_PRF                 "Profile"
+    IDS_TWEAK_NO_SHORTCUT_ARROW "Hide shortcut arrow"
+    IDS_INFO_TWEAK_NO_SHORTCUT_ARROW 
+                            "This setting hides the little shortcut arrows in file or folder shortcuts.\nEnabling this setting applies it for all users of this system. The setting is effective after the next login."
+    IDS_PROFILE_SUGGESTED   "Suggested"
+    IDS_PROFILE_WINDOWS_UPDATE "Windows Update"
+    IDS_PROFILE_SYSTEM_DEFAULT "System Default"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NO_RECENT_DOCS      "Do not keep history of recently opened documents"
+    IDS_INFO_NO_RECENT_DOCS "By setting this option, Windows will no longer create and save shortcuts to your recently opened documents. Also the menu entry for these shortcuts will no longer be displayed."
+    IDS_TWEAK_SVC_BITS      "Disable BITS service"
+    IDS_INFO_TWEAK_SVC_BITS " "
+END
+
+#endif    // Neutral (Standard) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LEGEND DIALOGEX 0, 0, 324, 279
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         316,IDC_STATIC,"Static",SS_BITMAP,7,7,21,20
+    CONTROL         317,IDC_STATIC,"Static",SS_BITMAP,7,34,21,20,
+                    WS_EX_TRANSPARENT
+    CONTROL         325,IDC_STATIC,"Static",SS_BITMAP,7,88,21,20,
+                    WS_EX_TRANSPARENT
+    CONTROL         319,IDC_STATIC,"Static",SS_BITMAP,7,61,21,20,
+                    WS_EX_TRANSPARENT
+    CONTROL         321,IDC_STATIC,"Static",SS_BITMAP,7,115,21,20,
+                    WS_EX_TRANSPARENT
+    CONTROL         320,IDC_STATIC,"Static",SS_BITMAP,7,142,21,20,
+                    WS_EX_TRANSPARENT
+    CONTROL         324,IDC_STATIC,"Static",SS_BITMAP,7,197,21,20,
+                    WS_EX_TRANSPARENT
+    CONTROL         322,IDC_STATIC,"Static",SS_BITMAP,7,169,21,21,
+                    WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_U,37,7,280,47,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_UW,37,115,280,47,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_UC,37,169,280,48,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_UR,37,61,280,47,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_LCK,37,224,280,47,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,7,224,21,20
+    CONTROL         336,IDC_STATIC,"Static",SS_BITMAP,7,251,20,20
+END
+
+IDD_INIT_PROFILE DIALOG DISCARDABLE  0, 0, 253, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,68,50,14
+    PUSHBUTTON      "",IDC_BTN_LATER,60,68,70,14
+    PUSHBUTTON      "",IDC_BTN_NEVER,133,68,113,14
+    EDITTEXT        IDC_TEXT,7,6,239,59,ES_CENTER | ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_LEGEND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 317
+        VERTGUIDE, 28
+        VERTGUIDE, 37
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 271
+        HORZGUIDE, 27
+        HORZGUIDE, 34
+        HORZGUIDE, 54
+        HORZGUIDE, 61
+        HORZGUIDE, 81
+        HORZGUIDE, 88
+        HORZGUIDE, 108
+        HORZGUIDE, 115
+        HORZGUIDE, 135
+        HORZGUIDE, 142
+        HORZGUIDE, 162
+        HORZGUIDE, 169
+        HORZGUIDE, 190
+        HORZGUIDE, 197
+        HORZGUIDE, 217
+        HORZGUIDE, 224
+        HORZGUIDE, 246
+        HORZGUIDE, 252
+    END
+
+    IDD_INIT_PROFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 82
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ABOUT_LOGO          BITMAP  DISCARDABLE     "..\\res\\about_logo.bmp"
+IDB_CHECKED_BIG         BITMAP  DISCARDABLE     "..\\res\\checked_big.bmp"
+IDB_CHECKED_RIGHT_BIG   BITMAP  DISCARDABLE     "..\\res\\checked_right_big.bmp"
+IDB_CHECKED_LOCKED      BITMAP  DISCARDABLE     "..\\res\\checked_locked.bmp"
+IDB_UNCHECKED_LOCKED    BITMAP  DISCARDABLE     "..\\res\\unchecked_locked.bmp"
+IDB_CHECKED_RIGHT_LOCKED BITMAP  DISCARDABLE     "..\\res\\checked_right_locked.bmp"
+IDB_CHECKED_WRONG_LOCKED BITMAP  DISCARDABLE     "..\\res\\checked_wrong_locked.bmp"
+IDB_UNCHECKED_WRONG_LOCKED BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong_locked.bmp"
+IDB_UNCHECKED_RIGHT_LOCKED BITMAP  DISCARDABLE     "..\\res\\unchecked_right_locked.bmp"
+IDB_CHECKED_LOCKED_BIG  BITMAP  DISCARDABLE     "..\\res\\checked_locked_big.bmp"
+IDB_UNCHECKED_LOCKED_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_locked_big.bmp"
+IDB_ICN_SEARCH          BITMAP  DISCARDABLE     "..\\res\\icn_search.bmp"
+IDB_EDIT_CLEAR          BITMAP  DISCARDABLE     "..\\res\\edit_clear.bmp"
+IDB_EDIT_CLEAR_HOVER    BITMAP  DISCARDABLE     "..\\res\\edit_clear_hover.bmp"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\xpAntiSpy.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
+    "#include ""l.deu\\afxres.rc""          // Standardkomponenten\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "..\\res\\icon5.ico"
+IDI_ICON2               ICON    DISCARDABLE     "..\\res\\XPANTISPY32_32.ico"
+IDI_ICON3               ICON    DISCARDABLE     "..\\res\\XPANTISPY16_16.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,9,8,2
+ PRODUCTVERSION 3,9,8,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "by Christian Taubenheim\0"
+            VALUE "CompanyName", "Tiger-IT.de\0"
+            VALUE "FileDescription", "xp-AntiSpy\0"
+            VALUE "FileVersion", "3, 9, 8, 2\0"
+            VALUE "InternalName", "xp-AntiSpy\0"
+            VALUE "LegalCopyright", "Copyright (C) 2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "xp-AntiSpy.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "xp-AntiSpy\0"
+            VALUE "ProductVersion", "3, 9, 8, 2\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// BINARY
+//
+
+IDR_CTFMON_DUMMY        BINARY  DISCARDABLE     "..\\res\\ctfmon.exe"
+IDR_EMPTY_ICON          BINARY  DISCARDABLE     "..\\res\\empty_icon"
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE 7, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\xpAntiSpy.rc2"  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen
+#include "l.deu\afxres.rc"          // Standardkomponenten
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
