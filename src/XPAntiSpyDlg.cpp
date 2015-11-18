@@ -171,7 +171,7 @@ BOOL CXPAntiSpyDlg::OnInitDialog()
 
 	memset(m_entryItem, 0, sizeof(TreeItem)*ITEMCOUNT);
 	InitTreeView();
-	m_TreeCtrl.SelectItem(m_hGroupItem[GI_MEDIAPLAYER].hItem);
+	m_TreeCtrl.SelectItem(m_hGroupItem[GI_DATASAFETY].hItem);
 	CheckForSpyFunctions();
 
 	const int i[]={90,30};
@@ -493,6 +493,206 @@ void CXPAntiSpyDlg::InitTreeView()
     CString langStr;
 	//Remove any items which may be in the control already
     m_TreeCtrl.DeleteAllItems();
+
+	/////////////////////////////////////////////////////////////////////////////
+	//Data safety
+	/////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	langStr.LoadString(IDS_GROUP_DATASAFETY);
+	m_hGroupItem[GI_DATASAFETY].hItem = m_TreeCtrl.InsertGroup(langStr, DISABLED, NULL);
+	m_hGroupItem[GI_DATASAFETY].text = langStr;
+	if (m_AntiSpySettings.TestSetting(ST_TELEMETRY) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_TELEMETRY);
+		m_entryItem[ST_TELEMETRY].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_TELEMETRY].text = langStr;
+		m_entryItem[ST_TELEMETRY].enabled = true;
+		m_entryItem[ST_TELEMETRY].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_TELEMETRY].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	/*if (m_AntiSpySettings.TestSetting(ST_APP_TELEMETRY) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_APP_TELEMETRY);
+		m_entryItem[ST_APP_TELEMETRY].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_APP_TELEMETRY].text = langStr;
+		m_entryItem[ST_APP_TELEMETRY].enabled = true;
+		m_entryItem[ST_APP_TELEMETRY].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_APP_TELEMETRY].enabled = false;
+	}*/
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_AD_ID) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_AD_ID);
+		m_entryItem[ST_AD_ID].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_AD_ID].text = langStr;
+		m_entryItem[ST_AD_ID].enabled = true;
+		m_entryItem[ST_AD_ID].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_AD_ID].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_WRITING_BEHAVIOR) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_WRITING_BEHAVIOR);
+		m_entryItem[ST_WRITING_BEHAVIOR].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_WRITING_BEHAVIOR].text = langStr;
+		m_entryItem[ST_WRITING_BEHAVIOR].enabled = true;
+		m_entryItem[ST_WRITING_BEHAVIOR].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_WRITING_BEHAVIOR].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_FEEDBACK) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_FEEDBACK);
+		m_entryItem[ST_FEEDBACK].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_FEEDBACK].text = langStr;
+		m_entryItem[ST_FEEDBACK].enabled = true;
+		m_entryItem[ST_FEEDBACK].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_FEEDBACK].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_BIOMETRY) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_BIOMETRY);
+		m_entryItem[ST_BIOMETRY].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_BIOMETRY].text = langStr;
+		m_entryItem[ST_BIOMETRY].enabled = true;
+		m_entryItem[ST_BIOMETRY].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_BIOMETRY].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_WEBSEARCH) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_WEBSEARCH);
+		m_entryItem[ST_WEBSEARCH].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_WEBSEARCH].text = langStr;
+		m_entryItem[ST_WEBSEARCH].enabled = true;
+		m_entryItem[ST_WEBSEARCH].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_WEBSEARCH].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_LOCATION_PROVIDER) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_LOCATION_PROVIDER);
+		m_entryItem[ST_LOCATION_PROVIDER].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_LOCATION_PROVIDER].text = langStr;
+		m_entryItem[ST_LOCATION_PROVIDER].enabled = true;
+		m_entryItem[ST_LOCATION_PROVIDER].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_LOCATION_PROVIDER].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_SENSORS) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_SENSORS);
+		m_entryItem[ST_SENSORS].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_SENSORS].text = langStr;
+		m_entryItem[ST_SENSORS].enabled = true;
+		m_entryItem[ST_SENSORS].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_SENSORS].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_WIFI_SENSE) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_WIFI_SENSE);
+		m_entryItem[ST_WIFI_SENSE].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_WIFI_SENSE].text = langStr;
+		m_entryItem[ST_WIFI_SENSE].enabled = true;
+		m_entryItem[ST_WIFI_SENSE].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_WIFI_SENSE].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_SITE_PREDICTION) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_SITE_PREDICTION);
+		m_entryItem[ST_SITE_PREDICTION].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_SITE_PREDICTION].text = langStr;
+		m_entryItem[ST_SITE_PREDICTION].enabled = true;
+		m_entryItem[ST_SITE_PREDICTION].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_SITE_PREDICTION].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_UPDATE_SHARING) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_UPDATE_SHARING);
+		m_entryItem[ST_UPDATE_SHARING].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_UPDATE_SHARING].text = langStr;
+		m_entryItem[ST_UPDATE_SHARING].enabled = true;
+		m_entryItem[ST_UPDATE_SHARING].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_UPDATE_SHARING].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_INVENTORY) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_INVENTORY);
+		m_entryItem[ST_INVENTORY].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_INVENTORY].text = langStr;
+		m_entryItem[ST_INVENTORY].enabled = true;
+		m_entryItem[ST_INVENTORY].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_INVENTORY].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if (m_AntiSpySettings.TestSetting(ST_PERSONALIZE) != NON_EXISTENT)
+	{
+		langStr.LoadString(IDS_PERSONALIZE);
+		m_entryItem[ST_PERSONALIZE].treeItem = m_TreeCtrl.InsertItem(langStr, m_hGroupItem[GI_DATASAFETY].hItem, 1);
+		m_entryItem[ST_PERSONALIZE].text = langStr;
+		m_entryItem[ST_PERSONALIZE].enabled = true;
+		m_entryItem[ST_PERSONALIZE].pGroupItem = &m_hGroupItem[GI_DATASAFETY];
+	}
+	else
+	{
+		m_entryItem[ST_PERSONALIZE].enabled = false;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	if(m_TreeCtrl.ItemHasChildren(m_hGroupItem[GI_DATASAFETY].hItem))
+	{
+		m_TreeCtrl.Expand(m_hGroupItem[GI_DATASAFETY].hItem, TVE_EXPAND);	
+	}
+	else
+	{
+		m_TreeCtrl.RemoveGroup(m_hGroupItem[GI_DATASAFETY].hItem);
+	}
+
 
 /////////////////////////////////////////////////////////////////////////////
 //Mediaplayer entries
@@ -1694,7 +1894,7 @@ void CXPAntiSpyDlg::InitTreeView()
 	{
 		m_entryItem[ST_SERVICES_WINDOWS_DEFENDER].enabled=	false;		
 	}
-	///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 	m_TreeCtrl.Expand(m_hGroupItem[GI_SERVICES].hItem, TVE_EXPAND);
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
@@ -2060,8 +2260,10 @@ void CXPAntiSpyDlg::InitTreeView()
 	{
 		m_entryItem[ST_TWEAK_SVC_BITS].enabled=	false;		
 	}
-
 	m_TreeCtrl.Expand(m_hGroupItem[GI_TWEAKS].hItem, TVE_EXPAND);
+
+
+	
 
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
@@ -2164,6 +2366,8 @@ bool CXPAntiSpyDlg::GetSuiteType(OS_INFO& versionInfo)
 			}
 		break;
 		case VER_PLATFORM_WIN32_NT:
+			DWORD maj = osVerEx.dwMajorVersion;
+			DWORD min = osVerEx.dwMinorVersion;
 			if(osVerEx.dwMajorVersion==5 && osVerEx.dwMinorVersion==1)
 			{
 				if(osVerEx.wSuiteMask==768) 
@@ -2189,12 +2393,33 @@ bool CXPAntiSpyDlg::GetSuiteType(OS_INFO& versionInfo)
 					versionInfo.osName="Windows Vista";
 				else if(osVerEx.dwMinorVersion==1)
 					versionInfo.osName="Windows 7";
+				else
+				{
+					RTLGETVERSION RtlGetVersion = (RTLGETVERSION)GetProcAddress(GetModuleHandleA("ntdll.dll"), "RtlGetVersion");
+					OSVERSIONINFO osv = { 0 };
+					osv.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+					RtlGetVersion(&osv);
+					maj = osv.dwMajorVersion;
+					min = osv.dwMinorVersion;
+					if (osv.dwMajorVersion == 6 && osv.dwMinorVersion == 2)
+					{
+						versionInfo.osName = "Windows 8";
+					}
+					else if (osv.dwMajorVersion == 6 && osv.dwMinorVersion == 3)
+					{
+						versionInfo.osName = "Windows 8.1";
+					}
+					else if (osv.dwMajorVersion == 10 && osv.dwMinorVersion == 0)
+					{
+						versionInfo.osName = "Windows 10";
+					}
+				}
 				DWORD dwReturnedProductType = 0;
 				pGetProductInfo = (PFUNC_GetProductInfo)::GetProcAddress(GetModuleHandle(_T("kernel32.dll")), "GetProductInfo");
 
 				if (pGetProductInfo) 
 				{
-					pGetProductInfo(6, 0, 0, 0, &dwReturnedProductType);
+					pGetProductInfo(maj, min, 0, 0, &dwReturnedProductType);
 
 					DWORD type = 0;
 	/*				GetProductInfo(osVerEx.dwMajorVersion,

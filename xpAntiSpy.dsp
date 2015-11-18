@@ -178,10 +178,6 @@ SOURCE=.\src\coloredit.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\Configuration.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\src\ConnectionLimitDlg.cpp
 # End Source File
 # Begin Source File
@@ -316,10 +312,6 @@ SOURCE=.\src\CMDLineDlg.h
 # Begin Source File
 
 SOURCE=.\src\coloredit.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\Configuration.h
 # End Source File
 # Begin Source File
 

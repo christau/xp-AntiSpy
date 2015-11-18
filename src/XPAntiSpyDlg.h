@@ -159,6 +159,7 @@ private:
 	 * @return bool True if it exists
 	 */
 	bool IsSupportuser();
+	typedef long(__stdcall *RTLGETVERSION)(POSVERSIONINFO);
 	bool GetSuiteType(OS_INFO&);
 	void InitTreeView();
 	/**

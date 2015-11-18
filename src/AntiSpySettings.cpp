@@ -15,6 +15,12 @@
     You should have received a copy of the GNU General Public License
     along with xp-AntiSpy.  If not, see <http://www.gnu.org/licenses/
 */
+#ifndef VS2015
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0500
+#endif 
+#endif
+
 #include "stdafx.h"
 #include "resource.h"
 #include "AntiSpySettings.h"
@@ -29,7 +35,7 @@
 #include <commctrl.h>
 #include <commdlg.h>
 #include <tchar.h>
-
+#include <sddl.h>
 extern BOOL IsWow64();
 extern BOOL MyWow64DisableWow64FsRedirection(PVOID OldValue);
 extern BOOL MyWow64RevertWow64FsRedirection(PVOID OldValue);
@@ -81,18 +87,41 @@ CAntiSpySettings::SUITE_TYPE CAntiSpySettings::GetSuiteType()
 	// 3 - XP Professional
 	// 4 - Vista
 	// 5 - Windows 7
+	// 6 - Windows 8
+	// 7 - Windows 8.1
+	// 8 - Windows 10
 	//
     OSVERSIONINFOEX_NEW osVerEx;
 
     //Try the new Ex structure. This will fail on < Windows NT 4.0 SP6
     memset (&osVerEx, 0, sizeof (OSVERSIONINFOEX_NEW));
     osVerEx.dwOSVersionInfoSize = sizeof (OSVERSIONINFOEX_NEW);
-    if (!GetVersionEx ((OSVERSIONINFO *)&osVerEx))
+	if (!GetVersionEx((OSVERSIONINFO *)&osVerEx))
+		return DEPRECATED_WINDOWS;
     if(osVerEx.wSuiteMask==768) return WINDOWS_XP_HOME;
-    if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==5 && osVerEx.dwMinorVersion == 0) return WINDOWS_NT_2000;
-    if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==5 && osVerEx.dwMinorVersion > 0) return WINDOWS_XP_PROFESSIONAL;
-    if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==6 && osVerEx.dwMinorVersion == 0) return WINDOWS_VISTA;
-    if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==6 && osVerEx.dwMinorVersion > 0) return WINDOWS_7;
+    else if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==5 && osVerEx.dwMinorVersion == 0) return WINDOWS_NT_2000;
+    else if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==5 && osVerEx.dwMinorVersion > 0) return WINDOWS_XP_PROFESSIONAL;
+    else if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==6 && osVerEx.dwMinorVersion == 0) return WINDOWS_VISTA;
+    else if(/*osVerEx.wSuiteMask==256 && */osVerEx.dwMajorVersion==6 && osVerEx.dwMinorVersion == 1) return WINDOWS_7;
+	else if (osVerEx.dwMajorVersion >= 6)
+	{
+		RTLGETVERSION RtlGetVersion = (RTLGETVERSION)GetProcAddress(GetModuleHandleA("ntdll.dll"), "RtlGetVersion");
+		OSVERSIONINFO osv = { 0 };
+		osv.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+		RtlGetVersion(&osv);
+		if (osv.dwMajorVersion == 6 && osv.dwMinorVersion == 2)
+		{
+			return WINDOWS_8;
+		}
+		else if (osv.dwMajorVersion == 6 && osv.dwMinorVersion == 3)
+		{
+			return WINDOWS_8_1;
+		}
+		else if (osv.dwMajorVersion == 10 && osv.dwMinorVersion == 0)
+		{
+			return WINDOWS_10;
+		}
+	}
 
 	return UNKNOWN;
 }
@@ -655,7 +684,7 @@ const SETTING_STATE CAntiSpySettings::TestSetting(const UINT setting) const
 		return NON_EXISTENT;
 	break;
 	case ST_SERVICES_WINDOWS_DEFENDER:
-		if((GetSuiteType() == WINDOWS_VISTA || GetSuiteType() == WINDOWS_7) && ServiceExist(_T("WinDefend")))
+		if(GetSuiteType() >= WINDOWS_VISTA && ServiceExist(_T("WinDefend")))
 		{
 			startType = m_svcControl->GetStartType(_T("WinDefend"));
 			if(startType != 5)
@@ -1866,6 +1895,223 @@ const SETTING_STATE CAntiSpySettings::TestSetting(const UINT setting) const
 			return ACTIVE;
 		}
 	}
+	case ST_TELEMETRY:
+	{
+		if (ServiceExist(_T("DiagTrack")))
+		{
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection"), IsWow64());
+			if (TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection"), _T("AllowTelemetry"), REG_DWORD, 0, NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_INVENTORY:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), IsWow64());
+			if (TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), _T("DisableInventory"), REG_DWORD, 1, NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_PERSONALIZE:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			REGKEY_TEST_RESULT res1 = TestRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization"), _T("RestrictImplicitInkCollection"), REG_DWORD, 1, NULL, IsWow64());
+			REGKEY_TEST_RESULT res2 = TestRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization"), _T("RestrictImplicitTextCollection"), REG_DWORD, 1, NULL, IsWow64());
+			REGKEY_TEST_RESULT res3 = TestRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization\\TrainedDataStore"), _T("HarvestContacts"), REG_DWORD, 0, NULL, IsWow64());
+			if(res1==MATCH && res2 == MATCH && res3 == MATCH)
+			{
+				return  ACTIVE;
+			}
+			else
+			{
+				return  INACTIVE;
+			}
+		}
+	}
+	case ST_APP_TELEMETRY:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), IsWow64());
+			if (TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), _T("AITEnable"), REG_DWORD, 0, NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_AD_ID:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			REGKEY_TEST_RESULT res = TestRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo"), _T("Enabled"), REG_DWORD, 1, NULL, IsWow64());
+			if (res == NO_MATCH)
+			{
+				return  ACTIVE;
+			}
+			else
+			{
+				return  INACTIVE;
+			}
+		}
+	}
+	case ST_WRITING_BEHAVIOR:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\Input\\TIPC"), IsWow64());
+			if (TestRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Input\\TIPC"), _T("Enabled"), REG_DWORD, 0, NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_FEEDBACK:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Siuf\\Rules"), IsWow64());
+			REGKEY_TEST_RESULT res = TestRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Siuf\\Rules"), _T("NumberOfSIUFInPeriod"), REG_DWORD, 0, NULL, IsWow64());
+			if ( res == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_BIOMETRY:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Biometrics"), IsWow64());
+			REGKEY_TEST_RESULT res = TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Biometrics"), _T("Enabled"), REG_DWORD, 1, NULL, IsWow64());
+			if (res == MATCH || res == NOT_FOUND)
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_WEBSEARCH:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search"), IsWow64());
+			if (TestRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search"), _T("BingSearchEnabled"), REG_DWORD, 0, NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_UPDATE_SHARING:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config"), IsWow64());
+			if (TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config"), _T("DODownloadMode"), REG_DWORD, 0, NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_LOCATION_PROVIDER:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), IsWow64());
+			if (TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), _T("DisableLocation"), REG_DWORD, 1, NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_SENSORS:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), IsWow64());
+			if (TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), _T("DisableSensors"), REG_DWORD, 1,NULL, IsWow64()) == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_WIFI_SENSE:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			const CString sid = getCurrentUserSID();
+			isWrite = TestKeyWritePermission(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features\\"+sid), IsWow64());
+			REGKEY_TEST_RESULT res = TestRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features\\"+sid), _T("FeatureStates"), REG_DWORD, 828, NULL, IsWow64());
+			if(res == MATCH)
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+		}
+	}
+	case ST_SITE_PREDICTION:
+	{
+		if (GetSuiteType() >= SUITE_TYPE::WINDOWS_10)
+		{
+			isWrite = TestKeyWritePermission(HKEY_CURRENT_USER, _T("Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\AppContainer\\Storage\\microsoft.microsoftedge_8wekyb3d8bbwe\\MicrosoftEdge\\FlipAhead"), IsWow64());
+			REGKEY_TEST_RESULT res = TestRegKeyValue(HKEY_CURRENT_USER, _T("Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\AppContainer\\Storage\\microsoft.microsoftedge_8wekyb3d8bbwe\\MicrosoftEdge\\FlipAhead"), _T("FPEnabled"), REG_DWORD, 1, NULL, IsWow64());
+			if (res == MATCH || res == NOT_FOUND)
+			{
+				return  isWrite ? INACTIVE : INACTIVE_NO_PERMISSION;
+			}
+			else
+			{
+				return  isWrite ? ACTIVE : ACTIVE_NO_PERMISSION;
+			}
+		}
+	}
 	}
 	return NON_EXISTENT;
 }
@@ -2117,7 +2363,7 @@ const bool CAntiSpySettings::EnableSetting(const UINT setting) const
 			m_svcControl->SetStartType(2,_T("SharedAccess"));
 			m_svcControl->StartService(_T("SharedAccess"));
 		}
-		else if((GetSuiteType() == WINDOWS_VISTA  || GetSuiteType() == WINDOWS_7) && ServiceExist(_T("MpsSvc")))
+		else if(GetSuiteType() >= WINDOWS_VISTA && ServiceExist(_T("MpsSvc")))
 		{
 			m_svcControl->SetStartType(2,_T("MpsSvc"));
 			m_svcControl->StartService(_T("MpsSvc"));
@@ -2125,7 +2371,7 @@ const bool CAntiSpySettings::EnableSetting(const UINT setting) const
 		return true;
 	break;
 	case ST_SERVICES_WINDOWS_DEFENDER:
-		if((GetSuiteType() == WINDOWS_VISTA  || GetSuiteType() == WINDOWS_7) && ServiceExist(_T("WinDefend")))
+		if(GetSuiteType() >= WINDOWS_VISTA && ServiceExist(_T("WinDefend")))
 		{
 			m_svcControl->SetStartType(4,_T("WinDefend"));
 			m_svcControl->StopService(_T("WinDefend"));
@@ -2519,6 +2765,101 @@ const bool CAntiSpySettings::EnableSetting(const UINT setting) const
 			m_svcControl->StartService(_T("BITS"));
 			return true;
 
+		}
+		case ST_TELEMETRY:
+		{
+			if (ServiceExist(_T("DiagTrack")))
+			{
+				m_svcControl->SetStartType(2, _T("DiagTrack"));
+				m_svcControl->StartService(_T("DiagTrack"));
+			}
+			if (ServiceExist(_T("dmwappushservice")))
+			{
+				m_svcControl->SetStartType(2, _T("dmwappushservice"));
+				m_svcControl->StartService(_T("dmwappushservice"));
+			}
+
+			//			return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection"), _T("AllowTelemetry"), 3);
+			return DeleteRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection"), _T("AllowTelemetry"), IsWow64());
+
+		}
+		case ST_INVENTORY:
+		{
+			
+			//			return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection"), _T("AllowTelemetry"), 3);
+			return DeleteRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), _T("DisableInventory"), IsWow64());
+
+		}
+		case ST_PERSONALIZE:
+		{
+			return DeleteRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization"), _T("RestrictImplicitInkCollection"), IsWow64()) &&
+				DeleteRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization"), _T("RestrictImplicitTextCollection"), IsWow64()) &&
+				DeleteRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization\\TrainedDataStore"), _T("HarvestContacts"), IsWow64());
+
+
+		}
+		case ST_APP_TELEMETRY:
+		{
+			
+			return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), _T("AITEnable"), 1);
+
+		}
+		case ST_AD_ID:
+		{
+			
+			return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo"), _T("Enabled"), 1);
+
+		}
+		case ST_WRITING_BEHAVIOR:
+		{
+			
+			return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Input\\TIPC"), _T("Enabled"), 1);
+
+		}
+		case ST_FEEDBACK:
+		{
+			return DeleteRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Siuf\\Rules"), _T("NumberOfSIUFInPeriod"), IsWow64());
+		
+	
+		}
+		case ST_BIOMETRY:
+		{
+			return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Biometrics"), _T("Enabled"), 1);
+	
+		}
+		case ST_WEBSEARCH:
+		{
+			return DeleteRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search"), _T("BingSearchEnabled"),IsWow64());
+	
+		}
+		case ST_UPDATE_SHARING:
+		{
+			const bool ret = SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config"), _T("DODownloadMode"), 3);
+			return ret;
+		}
+		case ST_LOCATION_PROVIDER:
+		{
+			m_svcControl->StopService(_T("lfsvc"));
+			m_svcControl->SetStartType(4,_T("lfsvc"));
+			return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), _T("DisableLocation"), 0);
+		}
+		case ST_SENSORS:
+		{
+				return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), _T("DisableSensors"), 0);
+		}
+		case ST_WIFI_SENSE:
+		{
+			const bool ret = SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features\\" + getCurrentUserSID()), _T("FeatureStates"), 829);
+			DeleteRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features"), _T("WiFiSenseCredShared"), IsWow64());
+			DeleteRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features"), _T("WiFiSenseOpen"), IsWow64());
+			m_svcControl->StopService(_T("WcmSvc"));
+			m_svcControl->StartService(_T("WcmSvc"));
+			return ret;
+		}
+		case ST_SITE_PREDICTION:
+		{
+			const bool ret = SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\AppContainer\\Storage\\microsoft.microsoftedge_8wekyb3d8bbwe\\MicrosoftEdge\\FlipAhead"), _T("FPEnabled"), 1);
+			return ret;
 		}
 	}
 	return false;
@@ -3451,9 +3792,180 @@ const bool CAntiSpySettings::DisableSetting(const UINT setting) const
 		m_svcControl->SetStartType(4,_T("BITS"));
 		m_svcControl->StopService(_T("BITS"));
 		return true;
-
 	}
 
+	case ST_TELEMETRY:
+	{
+		if (ServiceExist(_T("DiagTrack")))
+		{
+			m_svcControl->SetStartType(4, _T("DiagTrack"));
+			m_svcControl->StopService(_T("DiagTrack"));
+		}
+		if (ServiceExist(_T("dmwappushservice")))
+		{
+			m_svcControl->SetStartType(4, _T("dmwappushservice"));
+			m_svcControl->StopService(_T("dmwappushservice"));
+		}
+
+		return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection"), _T("AllowTelemetry"), 0);
+	}
+	case ST_INVENTORY:
+	{
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				RegCreateKeyEx(hKey, _T("AppCompat"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hKey);
+			}
+		}
+		return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), _T("DisableInventory"), 1);
+	}
+	case ST_PERSONALIZE:
+	{
+		if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				RegCreateKeyEx(hKey, _T("InputPersonalization"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCreateKeyEx(hSubKey, _T("TrainedDataStore"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hSubKey);
+			}
+		}
+
+		return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization"), _T("RestrictImplicitInkCollection"), 1) &&
+			SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization"), _T("RestrictImplicitTextCollection"), 1) &&
+			SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\InputPersonalization\\TrainedDataStore"), _T("HarvestContacts"), 0);
+	}
+	case ST_APP_TELEMETRY:
+	{
+
+		return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat"), _T("AITEnable"), 0);
+
+	}
+	case ST_AD_ID:
+	{
+		if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				RegCreateKeyEx(hKey, _T("AdvertisingInfo"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hKey);
+			}
+		}
+		DeleteRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo"), _T("Id"));
+		return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo"), _T("Enabled"), 0);
+
+	}
+	case ST_WRITING_BEHAVIOR:
+	{
+		if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Input\\TIPC"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				HKEY hTmpKey;
+				RegCreateKeyEx(hKey, _T("Input"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCreateKeyEx(hSubKey, _T("TIPC"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hSubKey);
+			}
+		}
+		return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Input\\TIPC"), _T("Enabled"), 0);
+
+	}
+	case ST_FEEDBACK:
+	{
+		if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Siuf\\Rules"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				HKEY hTmpKey;
+				RegCreateKeyEx(hKey, _T("Siuf"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCreateKeyEx(hSubKey, _T("Rules"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hSubKey);
+			}
+		}
+		return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Siuf\\Rules"), _T("NumberOfSIUFInPeriod"), 0);
+
+
+	}
+	case ST_BIOMETRY:
+	{
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Biometrics"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				HKEY hTmpKey;
+				RegCreateKeyEx(hKey, _T("Biometrics"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hSubKey);
+			}
+		}
+		return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Biometrics"), _T("Enabled"), 0);
+
+	}
+	case ST_WEBSEARCH:
+	{
+		return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search"), _T("BingSearchEnabled"), 0);
+
+	}
+	case ST_UPDATE_SHARING:
+	{
+		const bool ret = SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config"), _T("DODownloadMode"), 0);
+		return ret;
+	}
+	case ST_LOCATION_PROVIDER:
+	{
+		m_svcControl->StopService(_T("lfsvc"));
+		m_svcControl->SetStartType(3, _T("lfsvc"));
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				HKEY hTmpKey;
+				RegCreateKeyEx(hKey, _T("LocationAndSensors"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hSubKey);
+			}
+		}
+		return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), _T("DisableLocation"), 1);
+	}
+	case ST_SENSORS:
+	{
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) != ERROR_SUCCESS)
+		{
+			if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows"), 0, KEY_ALL_ACCESS | (IsWow64() ? KEY_WOW64_64KEY : 0), &hKey) == ERROR_SUCCESS)
+			{
+				HKEY hTmpKey;
+				RegCreateKeyEx(hKey, _T("LocationAndSensors"), NULL, NULL, REG_OPTION_NON_VOLATILE, KEY_CREATE_SUB_KEY | (IsWow64() ? KEY_WOW64_64KEY : 0), NULL, &hSubKey, &KeyDisposition);
+				RegCloseKey(hSubKey);
+			}
+		}
+		return SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors"), _T("DisableSensors"), 1);
+	}
+	case ST_WIFI_SENSE:
+	{
+		CString sid = getCurrentUserSID();
+		if (!TestRegKey(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features\\"+sid)))
+		{
+			//create System sub key if not existent
+			int access = KEY_CREATE_SUB_KEY;
+			if (IsWow64()) access |= KEY_WOW64_64KEY;
+			long ret = RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features\\"), 0, access, &hKey);
+			RegCreateKeyEx(hKey, sid, NULL, NULL, REG_OPTION_NON_VOLATILE, access, NULL, &hSubKey, &KeyDisposition);
+			RegCloseKey(hKey);
+			RegCloseKey(hSubKey);
+		}
+
+		bool ret = SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features\\"+getCurrentUserSID()), _T("FeatureStates"), 828);
+		ret |= SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features"), _T("WiFiSenseCredShared"), 0);
+		ret |= SetDWORDRegKeyValue(HKEY_LOCAL_MACHINE, _T("SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\features"), _T("WiFiSenseOpen"), 0);
+		
+		m_svcControl->StopService(_T("WcmSvc"));
+		m_svcControl->StartService(_T("WcmSvc"));
+		return ret;
+	}
+	case ST_SITE_PREDICTION:
+	{
+		return SetDWORDRegKeyValue(HKEY_CURRENT_USER, _T("Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\AppContainer\\Storage\\microsoft.microsoftedge_8wekyb3d8bbwe\\MicrosoftEdge\\FlipAhead"), _T("FPEnabled"), 0);
+	}
 
 	}
 	return false;
@@ -3760,7 +4272,7 @@ bool CAntiSpySettings::TestRegKey(const HKEY parentKey,LPCTSTR lpszKeyName)
 
 bool CAntiSpySettings::TestKeyWritePermission(const HKEY parentKey, LPCTSTR lpszKeyName, const bool isWow64)
 {
-	if(GetSuiteType() == WINDOWS_VISTA || GetSuiteType() == WINDOWS_7)
+	if(GetSuiteType() == WINDOWS_VISTA || GetSuiteType() == WINDOWS_7 || GetSuiteType() == WINDOWS_10)
 	{
 		if(parentKey == HKEY_LOCAL_MACHINE || parentKey == HKEY_CLASSES_ROOT)
 		{
@@ -3774,11 +4286,11 @@ bool CAntiSpySettings::TestKeyWritePermission(const HKEY parentKey, LPCTSTR lpsz
 	HKEY hKey;
 	long ret;
 	if(isWow64)
-		ret = RegOpenKeyEx(parentKey,lpszKeyName,0, KEY_SET_VALUE,&hKey);
+		ret = RegOpenKeyEx(parentKey,lpszKeyName,0, KEY_ALL_ACCESS,&hKey);
 	else
-		ret = RegOpenKeyEx(parentKey,lpszKeyName,0, KEY_WOW64_64KEY | KEY_SET_VALUE,&hKey);
+		ret = RegOpenKeyEx(parentKey,lpszKeyName,0, KEY_WOW64_64KEY | KEY_ALL_ACCESS,&hKey);
 	RegCloseKey(hKey);
-	if(ret == 5)
+	if(ret == ERROR_ACCESS_DENIED)
 	{
 		return false;
 	}
@@ -4308,47 +4820,60 @@ bool CAntiSpySettings::CreateEmptyIcon(CString file)
 
 }
 
+CString ConvertSidToString(PSID pSID)
+{
+	// Check input pointer
+	//assert(pSID!=null);
+	// Get string corresponding to SID
+	LPTSTR pszSID = NULL;
+	if (!ConvertSidToStringSid(pSID, &pszSID))
+	{
+		return _T("");
+	}
+
+	// Deep copy result in a CString instance
+	CString strSID(pszSID);
+
+	// Release buffer allocated by ConvertSidToStringSid API
+	LocalFree(pszSID);
+	pszSID = NULL;
+
+	// Return string representation of the SID
+	return strSID;
+}
+
 const CString CAntiSpySettings::getCurrentUserSID() const
 {
-	HANDLE hToken = NULL;
-	DWORD dwBufferSize = 0;
-	PTOKEN_USER pTokenUser = NULL;
-	int uid;
-
-	/* Open the access token associated with the calling process. */
-	if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken)) 
+	HANDLE hTok = NULL;
+	CString sid = "";
+	if (OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hTok))
 	{
-		return _T("");
+		// get user info size
+		LPBYTE buf = NULL;
+		DWORD  dwSize = 0;
+		GetTokenInformation(hTok, TokenUser, NULL, 0, &dwSize);
+		if (dwSize)
+			buf = (LPBYTE)LocalAlloc(LPTR, dwSize);
+
+		// get user info
+		if (GetTokenInformation(hTok, TokenUser, buf, dwSize, &dwSize))
+		{
+			// here's the SID we've looked for
+			PSID pSid = ((PTOKEN_USER)buf)->User.Sid;
+
+			// check user name for SID
+			TCHAR user[20], domain[20];
+			DWORD cbUser = 20, cbDomain = 20;
+			SID_NAME_USE nu;
+			LookupAccountSid(NULL, pSid, user, &cbUser, domain, &cbDomain, &nu);
+			sid = ConvertSidToString(pSid);
+		}
+		LocalFree(buf);
+		CloseHandle(hTok);
 	}
-
-	/* get the size of the memory buffer needed for the SID */
-	(void)GetTokenInformation(hToken, TokenUser, NULL, 0, &dwBufferSize);
-
-	pTokenUser = (PTOKEN_USER)malloc(dwBufferSize);
-	memset(pTokenUser, 0, dwBufferSize);
-
-	/* Retrieve the token information in a TOKEN_USER structure. */
-	if (!GetTokenInformation(hToken, TokenUser, pTokenUser, dwBufferSize,
-	&dwBufferSize)) 
-	{
-		return _T("");
-	}
-
-	CloseHandle(hToken);
-
-	if (!IsValidSid(pTokenUser->User.Sid)) 
-	{
-		free(pTokenUser);
-		return _T("");
-	}
-
-	uid = *GetSidSubAuthority(pTokenUser->User.Sid,
-	*GetSidSubAuthorityCount(pTokenUser->User.Sid) - 1);
-	printf("uid = %u\n", uid);
-
-	free(pTokenUser);
-	CloseHandle(hToken);
+	return sid;
 }
+
 
 void CAntiSpySettings::SetRegPermission(CString keyStr)
 {

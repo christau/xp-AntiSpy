@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral (Standard) resources
+// Neutral (Default) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
-#ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -27,115 +25,91 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
 //
 
 IDD_xpAntiSpy_DIALOG DIALOGEX 0, 0, 286, 249
-STYLE DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | 
-    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+STYLE DS_SETFONT | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
 END
 
 IDD_TIMESERVERDLG_DIALOG DIALOGEX 0, 0, 132, 101
-STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Set Time Server"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "Exit",IDC_OK,"Button",BS_OWNERDRAW | WS_TABSTOP,0,84,
-                    132,14
-    COMBOBOX        IDC_COMBO1,3,11,126,91,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
+    CONTROL         "Exit",IDC_OK,"Button",BS_OWNERDRAW | WS_TABSTOP,0,84,132,14
+    COMBOBOX        IDC_COMBO1,3,11,126,91,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Add new time server",IDC_STATIC,0,42,132,41,BS_CENTER
     EDITTEXT        IDC_EDIT1,4,51,124,14,ES_AUTOHSCROLL
-    GROUPBOX        "Available time servers",IDC_STATIC,0,1,132,41,BS_CENTER,
-                    WS_EX_TRANSPARENT
-    CONTROL         "Apply",IDC_APPLY,"Button",BS_OWNERDRAW | WS_TABSTOP,3,
-                    25,125,14
-    CONTROL         "Add",IDC_ADD,"Button",BS_OWNERDRAW | WS_TABSTOP,4,66,
-                    124,14
+    GROUPBOX        "Available time servers",IDC_STATIC,0,1,132,41,BS_CENTER,WS_EX_TRANSPARENT
+    CONTROL         "Apply",IDC_APPLY,"Button",BS_OWNERDRAW | WS_TABSTOP,3,25,125,14
+    CONTROL         "Add",IDC_ADD,"Button",BS_OWNERDRAW | WS_TABSTOP,4,66,124,14
 END
 
-IDD_TCPIP_SYS_DLG DIALOG DISCARDABLE  0, 0, 200, 169
-STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_TCPIP_SYS_DLG DIALOG 0, 0, 200, 169
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Connection limit"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "Patch",IDOK,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | 
-                    WS_TABSTOP,7,37,50,14
-    CONTROL         "Exit",IDCANCEL,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | 
-                    WS_TABSTOP,7,149,186,14
-    COMBOBOX        IDC_COMBO,75,38,66,68,CBS_DROPDOWN | CBS_SORT | NOT 
-                    WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Patch",IDOK,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,7,37,50,14
+    CONTROL         "Exit",IDCANCEL,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,7,149,186,14
+    COMBOBOX        IDC_COMBO,75,38,66,68,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Build:",IDC_BUILD,14,10,49,8,NOT WS_VISIBLE
     LTEXT           "",IDC_PATCHED,70,10,113,8,NOT WS_VISIBLE
-    CONTROL         "Reset to initial state",IDC_BTN_RESET,"Button",
-                    BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,7,53,186,14
+    CONTROL         "Reset to initial state",IDC_BTN_RESET,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,7,53,186,14
     LTEXT           "to",IDC_ON,61,40,8,8,NOT WS_VISIBLE
     LTEXT           "Connections",IDC_CONNECTIONS,146,41,40,8,NOT WS_VISIBLE
     GROUPBOX        "Info",IDC_INFO_BOX,7,2,186,32,NOT WS_VISIBLE
     LTEXT           "",IDC_MAX_CONNS,14,21,169,8,NOT WS_VISIBLE
     GROUPBOX        "Backup",IDC_STATIC,7,72,186,73
-    LISTBOX         IDC_BACKUP_LIST,13,84,174,40,LBS_SORT | 
-                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "-",ID_BACKUP_CLEAR,"Button",BS_OWNERDRAW | NOT 
-                    WS_VISIBLE | WS_TABSTOP,166,128,20,14
-    CONTROL         "+",ID_BTN_CREATE_BACKUP,"Button",BS_OWNERDRAW | NOT 
-                    WS_VISIBLE | WS_TABSTOP,142,128,20,14
-    CONTROL         "R",ID_BACKUP_RESTORE,"Button",BS_OWNERDRAW | NOT 
-                    WS_VISIBLE | WS_TABSTOP,119,128,20,14
+    LISTBOX         IDC_BACKUP_LIST,13,84,174,40,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "-",ID_BACKUP_CLEAR,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,166,128,20,14
+    CONTROL         "+",ID_BTN_CREATE_BACKUP,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,142,128,20,14
+    CONTROL         "R",ID_BACKUP_RESTORE,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | WS_TABSTOP,119,128,20,14
 END
 
 IDD_USERDEFINED_PROFILES DIALOGEX 0, 0, 186, 90
-STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Userdefined Profiles"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    COMBOBOX        IDC_COMBO_PROFILES,5,16,176,51,CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PROFILES,5,16,176,51,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Existing Profiles:",IDC_STATIC,5,7,160,8
-    CONTROL         "Delete selected",IDC_DEL_PROFILE,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,65,31,55,12
+    CONTROL         "Delete selected",IDC_DEL_PROFILE,"Button",BS_OWNERDRAW | WS_TABSTOP,65,31,55,12
     GROUPBOX        "",IDC_STATIC,1,1,183,45
-    CONTROL         "Delete all",IDC_DEL_ALL_PROFILES,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,5,31,55,12
-    CONTROL         "Create",IDC_CREATE_PROFILE,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,5,73,85,12
-    GROUPBOX        "Create new profile from current settings",IDC_STATIC,1,
-                    49,183,39
+    CONTROL         "Delete all",IDC_DEL_ALL_PROFILES,"Button",BS_OWNERDRAW | WS_TABSTOP,5,31,55,12
+    CONTROL         "Create",IDC_CREATE_PROFILE,"Button",BS_OWNERDRAW | WS_TABSTOP,5,73,85,12
+    GROUPBOX        "Create new profile from current settings",IDC_STATIC,1,49,183,39
     EDITTEXT        IDC_EDIT_NAME,5,59,175,12,ES_AUTOHSCROLL
-    CONTROL         "Export...",IDC_EXPORT_PROFILE,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,126,31,55,12
-    CONTROL         "Import...",IDC_IMPORT_PROFILE,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,98,73,82,12
+    CONTROL         "Export...",IDC_EXPORT_PROFILE,"Button",BS_OWNERDRAW | WS_TABSTOP,126,31,55,12
+    CONTROL         "Import...",IDC_IMPORT_PROFILE,"Button",BS_OWNERDRAW | WS_TABSTOP,98,73,82,12
 END
 
 IDD_CMDLINE_DLG DIALOGEX 0, 0, 286, 171
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Command line parameters"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    LISTBOX         IDC_LIST1,0,0,286,155,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
-                    NOT WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST1,0,0,286,155,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | NOT WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
 END
 
 IDD_ABOUT_DIALOG DIALOGEX 0, 0, 276, 183
-STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE | WS_CAPTION
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,0,169,276,14
     LTEXT           "",IDC_ABOUT,6,45,263,104,0,WS_EX_TRANSPARENT
-    CONTROL         311,-1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,0,0,280,35
+    CONTROL         IDB_ABOUT_LOGO,-1,"Static",SS_BITMAP | SS_REALSIZEIMAGE,0,0,280,35
     CTEXT           "test",IDC_TRANSLATOR,4,156,271,8
 END
 
-IDD_DLG_CHECK_PROFILE DIALOG DISCARDABLE  0, 0, 280, 142
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+IDD_DLG_CHECK_PROFILE DIALOG 0, 0, 280, 142
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 FONT 8, "MS Sans Serif"
 BEGIN
     PUSHBUTTON      "Ignore",IDOK,223,121,50,14
     DEFPUSHBUTTON   "Reapply Profile",IDREAPPLY,7,121,191,14
-    LISTBOX         IDC_LIST,7,29,266,87,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
-                    WS_VSCROLL | WS_TABSTOP
-    CTEXT           "The following settings do not match the selected profile",
-                    IDC_INFO,7,7,266,18,SS_CENTERIMAGE
+    LISTBOX         IDC_LIST,7,29,266,87,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "The following settings do not match the selected profile",IDC_INFO,7,7,266,18,SS_CENTERIMAGE
 END
 
 
@@ -145,7 +119,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_xpAntiSpy_DIALOG, DIALOG
     BEGIN
@@ -198,7 +172,7 @@ END
 // Menu
 //
 
-IDR_MENU1 MENU DISCARDABLE 
+IDR_MENU1 MENU
 BEGIN
     POPUP "&Profiles"
     BEGIN
@@ -209,14 +183,12 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Check profile at logon",      ID_PROFILE_AUTOSTART
         MENUITEM SEPARATOR
-        MENUITEM "User defined &profiles...\tCtrl+Enter", 
-                                                ID_USERDEFINED_PROFILES
+        MENUITEM "User defined &profiles...\tCtrl+Enter", ID_USERDEFINED_PROFILES
     END
     POPUP "&Special"
     BEGIN
         MENUITEM "&Refresh\tF5",                ID_SPECIAL_CHECKSYSTEMSTATUS
         MENUITEM "&Set time server...",         ID_SPEZIAL_TIMESERVERFESTLEGEN
-
         MENUITEM "&Connection limit...",        ID_SPEZIAL_VERBINDUNGSLIMIT
         MENUITEM "Administrative mode",         ID_MNU_RUNAS_ADMIN
         MENUITEM SEPARATOR
@@ -230,15 +202,13 @@ BEGIN
     POPUP "&?"
     BEGIN
         MENUITEM "&About XPAntiSpy...",         ID_MENU_ABOUT
-        MENUITEM "&Visit the xp-AntiSpy Homepage", 
-                                                ID__VISITTHEXPANTISPYHOMEPAGE
-
+        MENUITEM "&Visit the xp-AntiSpy Homepage", ID__VISITTHEXPANTISPYHOMEPAGE
         MENUITEM "&Help...",                    ID_HELPINDEX
         MENUITEM "&Symbol Reference...",        ID__VIEWQUICKLEGEND
     END
 END
 
-IDR_POPUP MENU DISCARDABLE 
+IDR_POPUP MENU
 BEGIN
     POPUP "popup"
     BEGIN
@@ -253,35 +223,35 @@ END
 // Bitmap
 //
 
-IDB_DIVIDER             BITMAP  DISCARDABLE     "..\\res\\divider.bmp"
-IDB_UNCHECKED_WRONG     BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong.bmp"
-IDB_UNCHECKED_RIGHT     BITMAP  DISCARDABLE     "..\\res\\unchecked_right.bmp"
-IDB_UNCHECKED_CHANGE    BITMAP  DISCARDABLE     "..\\res\\unchecked_change.bmp"
-IDB_UNCHECKED           BITMAP  DISCARDABLE     "..\\res\\unchecked.bmp"
-IDB_CHECKED_WRONG       BITMAP  DISCARDABLE     "..\\res\\checked_wrong.bmp"
-IDB_CHECKED_RIGHT       BITMAP  DISCARDABLE     "..\\res\\checked_right.bmp"
-IDB_CHECKED_CHANGE      BITMAP  DISCARDABLE     "..\\res\\checked_change.bmp"
-IDB_CHECKED             BITMAP  DISCARDABLE     "..\\res\\checked.bmp"
-IDB_PINNED              BITMAP  DISCARDABLE     "..\\res\\pinned.bmp"
-IDB_UNPINNED            BITMAP  DISCARDABLE     "..\\res\\unpinned.bmp"
-IDB_DISABLED            BITMAP  DISCARDABLE     "..\\res\\disabled.bmp"
-IDB_DIV_MID             BITMAP  DISCARDABLE     "..\\res\\divider_mid.bmp"
-IDB_DIV_RIGHT           BITMAP  DISCARDABLE     "..\\res\\divider_right.bmp"
-IDB_DIV_LEFT            BITMAP  DISCARDABLE     "..\\res\\divider_left.bmp"
-IDB_ALERT               BITMAP  DISCARDABLE     "..\\res\\alert.bmp"
-IDB_UNCHECKED_BIG       BITMAP  DISCARDABLE     "..\\res\\unchecked_big.bmp"
-IDB_UNCHECKED_RIGHT_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_right_big.bmp"
-IDB_CHECKED_WRONG_BIG   BITMAP  DISCARDABLE     "..\\res\\checked_wrong_big.bmp"
-IDB_UNCHECKED_WRONG_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong_big.bmp"
-IDB_UNCHECKED_CHANGE_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_change_big.bmp"
-IDB_CHECKED_CHANGE_BIG  BITMAP  DISCARDABLE     "..\\res\\checked_change_big.bmp"
+IDB_DIVIDER             BITMAP                  "..\\res\\divider.bmp"
+IDB_UNCHECKED_WRONG     BITMAP                  "..\\res\\unchecked_wrong.bmp"
+IDB_UNCHECKED_RIGHT     BITMAP                  "..\\res\\unchecked_right.bmp"
+IDB_UNCHECKED_CHANGE    BITMAP                  "..\\res\\unchecked_change.bmp"
+IDB_UNCHECKED           BITMAP                  "..\\res\\unchecked.bmp"
+IDB_CHECKED_WRONG       BITMAP                  "..\\res\\checked_wrong.bmp"
+IDB_CHECKED_RIGHT       BITMAP                  "..\\res\\checked_right.bmp"
+IDB_CHECKED_CHANGE      BITMAP                  "..\\res\\checked_change.bmp"
+IDB_CHECKED             BITMAP                  "..\\res\\checked.bmp"
+IDB_PINNED              BITMAP                  "..\\res\\pinned.bmp"
+IDB_UNPINNED            BITMAP                  "..\\res\\unpinned.bmp"
+IDB_DISABLED            BITMAP                  "..\\res\\disabled.bmp"
+IDB_DIV_MID             BITMAP                  "..\\res\\divider_mid.bmp"
+IDB_DIV_RIGHT           BITMAP                  "..\\res\\divider_right.bmp"
+IDB_DIV_LEFT            BITMAP                  "..\\res\\divider_left.bmp"
+IDB_ALERT               BITMAP                  "..\\res\\alert.bmp"
+IDB_UNCHECKED_BIG       BITMAP                  "..\\res\\unchecked_big.bmp"
+IDB_UNCHECKED_RIGHT_BIG BITMAP                  "..\\res\\unchecked_right_big.bmp"
+IDB_CHECKED_WRONG_BIG   BITMAP                  "..\\res\\checked_wrong_big.bmp"
+IDB_UNCHECKED_WRONG_BIG BITMAP                  "..\\res\\unchecked_wrong_big.bmp"
+IDB_UNCHECKED_CHANGE_BIG BITMAP                  "..\\res\\unchecked_change_big.bmp"
+IDB_CHECKED_CHANGE_BIG  BITMAP                  "..\\res\\checked_change_big.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_GROUP_MEDIAPLAYER   "MediaPlayer Functions"
     IDS_MEDIAPLAYER_LICENSES "Do not acquire licenses automatically"
@@ -300,7 +270,7 @@ BEGIN
     IDS_GROUP_SERVICES      "Services"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_SERVICES_ERROR_REPORTS "Disable error-report service"
     IDS_SERVICES_AUTO_UPDATES "Disable auto-updates service"
@@ -319,7 +289,7 @@ BEGIN
     IDS_OE_START_MESSENGER  "Don't start MS Messenger with Outlook Express"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_GROUP_MISCELLANOUS  "Miscellaneous Settings"
     IDS_OXP_ERRORREPORT     "OfficeXP: Don't send error reports"
@@ -330,7 +300,7 @@ BEGIN
     IDS_ABOUT               "(c)2001 Christian Taubenheim\nThere's no warranty should this program fail for you! I tested as much as I could, but\nsince this is a one-man project there can be errors. This tool is always free of\ncharge.\n\nI'd like to thank all the people at the cosmocon-Userboard, you guys really rock!\nVisit my website http://www.xp-AntiSpy.org for updates.\n\nI'd like to dedicate this program to a very close friend and my programming mentor\ncalled .....'AWEX'.....\n\nThis program was written in Visual C++ and I enjoyed it!!!!! -chris-"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_SERVICES_MSGSRV     "Disable Messaging Service."
     IDS_IE_FORM_SUGGEST     "Do not autosuggest webforms and passwords anymore."
@@ -341,7 +311,7 @@ BEGIN
     IDS_MP9_SAVEMRU         "Don't save data and url's in the most recently used file."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_INFO_ALEXA          "The ALEXA-key is a browser add-in which collects personal data about your surfing habits. For more info go to the producers of ALEXA (www.alexa.com)."
     IDS_INFO_MEDIAPLAYER_LICENSES 
@@ -366,7 +336,7 @@ BEGIN
                             "This disables the service, which is needed if you plan to synchronize your system time with a server on the internet, if you plan to do this, you can change the time server to be connected to in the 'special' menu."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_INFO_SERVICES_TASKSCHEDULER 
                             "If you don't plan on running programs scheduled in the background, just deactivate this service. It's not security relevant, but saves some resources on your machine. If you use software from Norton or the BootVis from MS, you better leave this setting as it is, because otherwise it may lead to difficulties. On Windows Vista the Task Sheduler is needed by the System Restore feature."
@@ -388,7 +358,7 @@ BEGIN
                             "If an OfficeXP application crashes, XP does not try to send an error report"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_INFO_FAST_SHUTDOWN  "If you tell XP to shutdown, this setting can speed up the process of shutting down."
     IDS_INFO_SERVICES_UPNP  "In the past there was a security related problem with the UPNP service. If you want to know more about UPNP, visit http://support.microsoft.com/kb/323713/EN-US/"
@@ -411,7 +381,7 @@ BEGIN
     IDS_INFO_IE_ACTIVEX     "This setting disables the ability of executing ActiveX controls through the Internet Explorer. If you plan on launching a windows update via your webbrowser you'll have to enable ActiveX. There are a few other webpages that use ActiveX controls but in many cases ActiveX controls want to install some sort of dialer on your machine. So it's better to disable this feature and enable it when you're sure about the content."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_GROUP_INFO_MEDIAPLAYER "MS Mediaplayer"
     IDS_GROUP_INFO_ERROR_REPORTS "Error reports"
@@ -424,7 +394,7 @@ BEGIN
     IDS_IE_JAVASCRIPT       "Disable Javascript"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_IE_ACTIVEX          "Disable ActiveX Controls"
     IDS_IE_POPUP_BLOCKER    "Enable pop-up blocking"
@@ -448,7 +418,7 @@ BEGIN
     IDS_NO                  "No"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_YES                 "Yes"
     IDS_UNKNOWN_BUILD       "Unknown Build number of the file, unable to patch.\nPlease Notice that this function is only active in\n Service Pack 2 for Windows XP, and\nService Pack 1a for Windows 2003."
@@ -468,7 +438,7 @@ BEGIN
                             "Through this setting the computer won't be shown in the network neighbourhood. So no one can identify your computer unless he knows its address or name."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_DENY_REGEDIT        "Deny starting regedit.exe"
     IDS_INFO_DENY_REGEDIT   "Prevents the logged-on user from starting the registry editor and so editing the registry."
@@ -483,7 +453,7 @@ BEGIN
     IDS_INFO_IE_CLEAN_CACHE "On shutdown of the system, the created cache files will be erased."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_CD_AUTORUN          "No AutoPlay "
     IDS_INFO_CD_AUTORUN     "Through this setting it will be prevented that, if you insert a CD into the computer, the computer will look for existing start-up files. This also applies for all connected drives. Further information: http://en.wikipedia.org/wiki/AutoRun"
@@ -499,7 +469,7 @@ BEGIN
     IDS_MP_START_IN_MEDIA_GUIDE "Don't start player in media guide."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_INFO_MP_START_IN_MEDIA_GUIDE 
                             "Prevents the media player from connecting to the startpage on the internet."
@@ -518,7 +488,7 @@ BEGIN
     IDS_CMD_LINE_SYNTAX     "Syntax: xp-AntiSpy.exe [+|-n] ..."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_CMD_LINE_ENABLE     "+ means that the setting will be activated (enabled)"
     IDS_CMD_LINE_DISABLE    "- means that the setting will be deactivated (disabled)"
@@ -542,7 +512,7 @@ BEGIN
     IDS_CHECKED_CHANGE      "Turns active after applying: "
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_RESTRICTANONYMOUS   "Restrict anonymous network access"
     IDS_INFO_RESTRICTANONYMOUS 
@@ -567,7 +537,7 @@ BEGIN
     IDS_LEGEND_UNCHECKED    "If there's no checkmark inside the icon, it means that this setting is not active. So if you read something like 'Disable the Indexing service'' then it means that the indexing service currently is running on your computer. No checkmark inside the icon also shows you that this is the default system state of the setting. If the checkmark is shown, it means that the indexing service is not running. "
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_LEGEND_UNCHECKED_RIGHT 
                             "The green-colored icon indicates entry states that are just like the currently selected profile wants them to be. The checkmark in the icon shows the state of this setting as it is right now. So whenever you see a green icon, it signalizes an OK to this setting."
@@ -590,7 +560,7 @@ BEGIN
                             "The phishing filter should protect you from potential risks of falling for a phishig attack while surfing in the internet.Further information on Phishing: http://en.wikipedia.org/wiki/Phishing"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_ERROR               "Error"
     IDS_SERVICES_WINDOWS_DEFENDER "Enable Windows Defender System Service"
@@ -614,7 +584,7 @@ BEGIN
     IDS_GROUP_INFO_TWEAKS   "These are miscellaneous Settings, which are been sent to me by other users of the xp-AntiSpy. These settings are also my favorites and I always use them when install a Windows operation system. I think some of these settings can also be useful for you."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_TWEAK_COMMAND_HERE  "Command line prompt in the context menu"
     IDS_INFO_TWEAK_COMMAND_HERE 
@@ -642,7 +612,7 @@ BEGIN
     IDS_TWEAK_BSOD_AUTOREBOOT "Disable automatic reboot on system crashes"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_INFO_TWEAK_BSOD_AUTOREBOOT 
                             "If the system crashes in case of a critical error, the famous 'Blue Screen of Death' is displayed for a very short time and then the system automatically restarts.\nBut in some cases the 'Blue Screen' can contain viable information about the cause of the crash, therefore the automatic reboot of the system can be disable via this setting."
@@ -668,7 +638,7 @@ BEGIN
     IDS_INFO_IE_NO_SQM      "This disables your active participation in this program. After restarting your browser, no more usage information will be reported to Microsoft over the internet. Find more info at: http://www.microsoft.com/products/ceip/EN-US/default.mspx"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_IE_SUGGESTED_SITES  "Disable 'Suggested Sites'."
     IDS_INFO_IE_SUGGESTED_SITES 
@@ -689,7 +659,7 @@ BEGIN
     IDS_NO_NCSI             "Disable Network Connectivity Status Indicator"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_NO_ROOT_CERT        "Disable automatic update of the root certificates"
     IDS_INFO_NO_ROOT_CERT   "Microsoft tries to verify the software publish of each downloaded application, therefore certificates are needed. If a certificate is missing, the operating system automatically tries to download this certificate from the microsoft update server. If this setting is activated and the needed certificate is not locally available the system will not download the missing certificate, it will just show you 'Unknown Publisher'. You also can download the certificates manually from the microsoft server via the keyword 'KB931125'."
@@ -711,26 +681,67 @@ BEGIN
     IDS_PROFILE_SYSTEM_DEFAULT "System Default"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_NO_RECENT_DOCS      "Do not keep history of recently opened documents"
     IDS_INFO_NO_RECENT_DOCS "By setting this option, Windows will no longer create and save shortcuts to your recently opened documents. Also the menu entry for these shortcuts will no longer be displayed."
     IDS_TWEAK_SVC_BITS      "Disable BITS service"
     IDS_INFO_TWEAK_SVC_BITS " "
+    IDS_GROUP_DATASAFETY    "Data safety"
+    IDS_TELEMETRY           "Disable Telemetry"
+    IDS_INFO_TELEMETRY      "Das setzen dieser Einstellung verhindert das Windows die gesammelten Diagnosedaten über dieses System an Microsoft sendet"
+    IDS_APP_TELEMETRY       "Disable Application Telemertry"
+    IDS_AD_ID               "Disable Advertising-ID"
+    IDS_INFO_AD_ID          "Durch setzen dieser Einstellung wird verhindert das Applikationen die eindeutige WeberID dieses Systems verwenden"
+    IDS_WRITING_BEHAVIOR    "Keine Informationen zum Schreibverhalten übertragen"
+    IDS_INFO_WRITING_BEHAVIOR 
+                            "Das setzen dieser Einstellung verhindert das Windows Daten Püber dein Schreibverhalten an Microsoft überträgt"
+    IDS_FEEDBACK            "Feedbackhäufigkeit deaktivieren"
+    IDS_INFO_FEEDBACK       "Das setzen dieser Einstellung stellt die 'Feedbackhäufigkeit' auf 0 ein.\n Mehr Info dazu von Microsoft selbst http://windows.microsoft.com/de-de/windows-10/feedback-diagnostics-privacy-faq"
+    IDS_BIOMETRY            "Biometrie deaktivieren"
+    IDS_INFO_BIOMETRY       "Deaktiviert die Biometrie-Funktionen inklusive der Biometrischen Benutzeranmeldung"
 END
 
-#endif    // Neutral (Standard) resources
+STRINGTABLE
+BEGIN
+    IDS_WEBSEARCH           "Websuche deaktivieren"
+    IDS_INFO_WEBSEARCH      "Durch das setzen dieser Einstellung wird beim benutzen der Windows-Suche nicht automatisch auch im Internet gesucht"
+    IDS_LOCATION_PROVIDER   "Deaktivieren der Lokalisierungsfunktionen"
+    IDS_INFO_LOCATION_PROVIDER 
+                            "Das setzen dieser Einstellung verhindert das Apps auf die Lokalisierungsfunktion zugriff haben."
+    IDS_SENSORS             "Deaktivieren des Sensorzugriffs"
+    IDS_INFO_SENSORS        "Das setzen dieser Einstellung verhindert, das Apps auf die Sensoren des Systems zugriff haben."
+    IDS_INFO_APP_TELEMETRY  " "
+    IDS_GROUP_INFO_DATASAFETY    "Settings for data safety of this system"
+    IDS_WIFI_SENSE          "Disable WiFi-Sense"
+    IDS_INFO_WIFI_SENSE     " "
+    IDS_SITE_PREDICTION     "Disable site prediction"
+    IDS_INFO_SITE_PREDICTION 
+                            "Durch das setzen dieser Einstellung wird verhindert, das beim Browsen mit dem Edge Browser der Verlauf an Microsoft gesendet wird, um dort analysiert zu werden."
+    IDS_UPDATE_SHARING      "Windows Update nicht via P2P weiterverteilen"
+    IDS_INFO_UPDATE_SHARING "Setzen dieser Einstellung verhindert, das die heruntergeladenen Windows Updates per P2P Filesharing mit anderen Windows Installationen im Internet geteilt werden."
+    IDS_DIAGTRACK           "Deaktivieren des Diagnose- und Nachverfolgungsdienstes"
+    IDS_INFO_DIAGTRACK      " "
+END
+
+STRINGTABLE
+BEGIN
+	IDS_INVENTORY			"Inventarisierung Deaktivieren"
+	IDS_INFO_INVENTORY		"Der 'Inventory Collector' sammelt Informationen zu Anwendungen,Geräten,Treibern und Dateien und sendet diese an Microsoft. Mit dem setzen dieser Einstellung wird das unterbunden."
+	IDS_PERSONALIZE			"Kennenlernen Deaktiveren"
+	IDS_INFO_PERSONALIZE	"Das setzen dieser Einstellung verhindert das Windows und Cortana den Anwender 'Kennenlernen'. Das Heisst das Sprech- und Schreibverhalten Aufgezeichnet und zur Analyse an Microsoft gesendet werden."
+END
+
+#endif    // Neutral (Default) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
-#ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -738,54 +749,36 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 //
 
 IDD_LEGEND DIALOGEX 0, 0, 324, 279
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_TOOLWINDOW
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         316,IDC_STATIC,"Static",SS_BITMAP,7,7,21,20
-    CONTROL         317,IDC_STATIC,"Static",SS_BITMAP,7,34,21,20,
-                    WS_EX_TRANSPARENT
-    CONTROL         325,IDC_STATIC,"Static",SS_BITMAP,7,88,21,20,
-                    WS_EX_TRANSPARENT
-    CONTROL         319,IDC_STATIC,"Static",SS_BITMAP,7,61,21,20,
-                    WS_EX_TRANSPARENT
-    CONTROL         321,IDC_STATIC,"Static",SS_BITMAP,7,115,21,20,
-                    WS_EX_TRANSPARENT
-    CONTROL         320,IDC_STATIC,"Static",SS_BITMAP,7,142,21,20,
-                    WS_EX_TRANSPARENT
-    CONTROL         324,IDC_STATIC,"Static",SS_BITMAP,7,197,21,20,
-                    WS_EX_TRANSPARENT
-    CONTROL         322,IDC_STATIC,"Static",SS_BITMAP,7,169,21,21,
-                    WS_EX_TRANSPARENT
-    EDITTEXT        IDC_INFO_U,37,7,280,47,ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    EDITTEXT        IDC_INFO_UW,37,115,280,47,ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    EDITTEXT        IDC_INFO_UC,37,169,280,48,ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    EDITTEXT        IDC_INFO_UR,37,61,280,47,ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    EDITTEXT        IDC_INFO_LCK,37,224,280,47,ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    CONTROL         337,IDC_STATIC,"Static",SS_BITMAP,7,224,21,20
-    CONTROL         336,IDC_STATIC,"Static",SS_BITMAP,7,251,20,20
+    CONTROL         IDB_UNCHECKED_BIG,IDC_STATIC,"Static",SS_BITMAP,7,7,21,20
+    CONTROL         IDB_CHECKED_BIG,IDC_STATIC,"Static",SS_BITMAP,7,34,21,20,WS_EX_TRANSPARENT
+    CONTROL         IDB_CHECKED_RIGHT_BIG,IDC_STATIC,"Static",SS_BITMAP,7,88,21,20,WS_EX_TRANSPARENT
+    CONTROL         IDB_UNCHECKED_RIGHT_BIG,IDC_STATIC,"Static",SS_BITMAP,7,61,21,20,WS_EX_TRANSPARENT
+    CONTROL         IDB_UNCHECKED_WRONG_BIG,IDC_STATIC,"Static",SS_BITMAP,7,115,21,20,WS_EX_TRANSPARENT
+    CONTROL         IDB_CHECKED_WRONG_BIG,IDC_STATIC,"Static",SS_BITMAP,7,142,21,20,WS_EX_TRANSPARENT
+    CONTROL         IDB_CHECKED_CHANGE_BIG,IDC_STATIC,"Static",SS_BITMAP,7,197,21,20,WS_EX_TRANSPARENT
+    CONTROL         IDB_UNCHECKED_CHANGE_BIG,IDC_STATIC,"Static",SS_BITMAP,7,169,21,21,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_U,37,7,280,47,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_UW,37,115,280,47,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_UC,37,169,280,48,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_UR,37,61,280,47,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_INFO_LCK,37,224,280,47,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_TRANSPARENT
+    CONTROL         IDB_UNCHECKED_LOCKED_BIG,IDC_STATIC,"Static",SS_BITMAP,7,224,21,20
+    CONTROL         IDB_CHECKED_LOCKED_BIG,IDC_STATIC,"Static",SS_BITMAP,7,251,20,20
 END
 
-IDD_INIT_PROFILE DIALOG DISCARDABLE  0, 0, 253, 89
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_INIT_PROFILE DIALOG 0, 0, 253, 89
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,68,50,14
     PUSHBUTTON      "",IDC_BTN_LATER,60,68,70,14
     PUSHBUTTON      "",IDC_BTN_NEVER,133,68,113,14
-    EDITTEXT        IDC_TEXT,7,6,239,59,ES_CENTER | ES_MULTILINE | 
-                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_TEXT,7,6,239,59,ES_CENTER | ES_MULTILINE | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
 END
 
 
@@ -795,7 +788,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_LEGEND, DIALOG
     BEGIN
@@ -841,20 +834,20 @@ END
 // Bitmap
 //
 
-IDB_ABOUT_LOGO          BITMAP  DISCARDABLE     "..\\res\\about_logo.bmp"
-IDB_CHECKED_BIG         BITMAP  DISCARDABLE     "..\\res\\checked_big.bmp"
-IDB_CHECKED_RIGHT_BIG   BITMAP  DISCARDABLE     "..\\res\\checked_right_big.bmp"
-IDB_CHECKED_LOCKED      BITMAP  DISCARDABLE     "..\\res\\checked_locked.bmp"
-IDB_UNCHECKED_LOCKED    BITMAP  DISCARDABLE     "..\\res\\unchecked_locked.bmp"
-IDB_CHECKED_RIGHT_LOCKED BITMAP  DISCARDABLE     "..\\res\\checked_right_locked.bmp"
-IDB_CHECKED_WRONG_LOCKED BITMAP  DISCARDABLE     "..\\res\\checked_wrong_locked.bmp"
-IDB_UNCHECKED_WRONG_LOCKED BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong_locked.bmp"
-IDB_UNCHECKED_RIGHT_LOCKED BITMAP  DISCARDABLE     "..\\res\\unchecked_right_locked.bmp"
-IDB_CHECKED_LOCKED_BIG  BITMAP  DISCARDABLE     "..\\res\\checked_locked_big.bmp"
-IDB_UNCHECKED_LOCKED_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_locked_big.bmp"
-IDB_ICN_SEARCH          BITMAP  DISCARDABLE     "..\\res\\icn_search.bmp"
-IDB_EDIT_CLEAR          BITMAP  DISCARDABLE     "..\\res\\edit_clear.bmp"
-IDB_EDIT_CLEAR_HOVER    BITMAP  DISCARDABLE     "..\\res\\edit_clear_hover.bmp"
+IDB_ABOUT_LOGO          BITMAP                  "..\\res\\about_logo.bmp"
+IDB_CHECKED_BIG         BITMAP                  "..\\res\\checked_big.bmp"
+IDB_CHECKED_RIGHT_BIG   BITMAP                  "..\\res\\checked_right_big.bmp"
+IDB_CHECKED_LOCKED      BITMAP                  "..\\res\\checked_locked.bmp"
+IDB_UNCHECKED_LOCKED    BITMAP                  "..\\res\\unchecked_locked.bmp"
+IDB_CHECKED_RIGHT_LOCKED BITMAP                  "..\\res\\checked_right_locked.bmp"
+IDB_CHECKED_WRONG_LOCKED BITMAP                  "..\\res\\checked_wrong_locked.bmp"
+IDB_UNCHECKED_WRONG_LOCKED BITMAP                  "..\\res\\unchecked_wrong_locked.bmp"
+IDB_UNCHECKED_RIGHT_LOCKED BITMAP                  "..\\res\\unchecked_right_locked.bmp"
+IDB_CHECKED_LOCKED_BIG  BITMAP                  "..\\res\\checked_locked_big.bmp"
+IDB_UNCHECKED_LOCKED_BIG BITMAP                  "..\\res\\unchecked_locked_big.bmp"
+IDB_ICN_SEARCH          BITMAP                  "..\\res\\icn_search.bmp"
+IDB_EDIT_CLEAR          BITMAP                  "..\\res\\edit_clear.bmp"
+IDB_EDIT_CLEAR_HOVER    BITMAP                  "..\\res\\edit_clear_hover.bmp"
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -862,18 +855,18 @@ IDB_EDIT_CLEAR_HOVER    BITMAP  DISCARDABLE     "..\\res\\edit_clear_hover.bmp"
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -891,7 +884,7 @@ BEGIN
     "\0"
 END
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
@@ -906,11 +899,10 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_ICON1               ICON    DISCARDABLE     "..\\res\\icon5.ico"
-IDI_ICON2               ICON    DISCARDABLE     "..\\res\\XPANTISPY32_32.ico"
-IDI_ICON3               ICON    DISCARDABLE     "..\\res\\XPANTISPY16_16.ico"
+IDI_ICON1               ICON                    "..\\res\\icon5.ico"
+IDI_ICON2               ICON                    "..\\res\\XPANTISPY32_32.ico"
+IDI_ICON3               ICON                    "..\\res\\XPANTISPY16_16.ico"
 
-#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -933,18 +925,15 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "Comments", "by Christian Taubenheim\0"
-            VALUE "CompanyName", "Tiger-IT.de\0"
-            VALUE "FileDescription", "xp-AntiSpy\0"
-            VALUE "FileVersion", "3, 9, 8, 2\0"
-            VALUE "InternalName", "xp-AntiSpy\0"
-            VALUE "LegalCopyright", "Copyright (C) 2001\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "xp-AntiSpy.exe\0"
-            VALUE "PrivateBuild", "\0"
-            VALUE "ProductName", "xp-AntiSpy\0"
-            VALUE "ProductVersion", "3, 9, 8, 2\0"
-            VALUE "SpecialBuild", "\0"
+            VALUE "Comments", "by Christian Taubenheim"
+            VALUE "CompanyName", "Tiger-IT.de"
+            VALUE "FileDescription", "xp-AntiSpy"
+            VALUE "FileVersion", "3, 9, 8, 2"
+            VALUE "InternalName", "xp-AntiSpy"
+            VALUE "LegalCopyright", "Copyright (C) 2001"
+            VALUE "OriginalFilename", "xp-AntiSpy.exe"
+            VALUE "ProductName", "xp-AntiSpy"
+            VALUE "ProductVersion", "3, 9, 8, 2"
         END
     END
     BLOCK "VarFileInfo"
@@ -953,17 +942,15 @@ BEGIN
     END
 END
 
-#endif    // !_MAC
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // BINARY
 //
 
-IDR_CTFMON_DUMMY        BINARY  DISCARDABLE     "..\\res\\ctfmon.exe"
-IDR_EMPTY_ICON          BINARY  DISCARDABLE     "..\\res\\empty_icon"
-#endif    // Deutsch (Deutschland) resources
+IDR_CTFMON_DUMMY        BINARY                  "..\\res\\ctfmon.exe"
+IDR_EMPTY_ICON          BINARY                  "..\\res\\empty_icon"
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

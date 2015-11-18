@@ -31,6 +31,9 @@ public:
 		WINDOWS_XP_PROFESSIONAL,
 		WINDOWS_VISTA,
 		WINDOWS_7,
+		WINDOWS_8,
+		WINDOWS_8_1,
+		WINDOWS_10,
 		UNKNOWN
 	};
 	enum REGKEY_TEST_RESULT
@@ -84,6 +87,7 @@ public:
 	static bool	TestRegKey(const HKEY, LPCTSTR, const bool isWow64);
 	void SetRegPermission(CString keyStr);
 private:
+	typedef long(__stdcall *RTLGETVERSION)(POSVERSIONINFO);
 	static bool	TestKeyWritePermission(const HKEY, LPCTSTR);
 	static bool	TestKeyWritePermission(const HKEY, LPCTSTR, const bool isWow64);
 	const bool	SetRegKeyValue(const HKEY, LPCTSTR, LPCTSTR, LPCTSTR, const DWORD, const UINT, const DWORD)const;

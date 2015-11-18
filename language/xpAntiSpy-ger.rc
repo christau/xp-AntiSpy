@@ -110,7 +110,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO MOVEABLE PURE 
 BEGIN
     IDD_TCPIP_SYS_DLG, DIALOG
     BEGIN
@@ -200,12 +200,12 @@ END
 // Bitmap
 //
 
-IDB_CHECKED_CHANGE_BIG  BITMAP  DISCARDABLE     "..\\res\\checked_change_big.bmp"
-IDB_CHECKED_WRONG_BIG   BITMAP  DISCARDABLE     "..\\res\\checked_wrong_big.bmp"
-IDB_UNCHECKED_BIG       BITMAP  DISCARDABLE     "..\\res\\unchecked_big.bmp"
-IDB_UNCHECKED_WRONG_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong_big.bmp"
-IDB_UNCHECKED_RIGHT_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_right_big.bmp"
-IDB_UNCHECKED_CHANGE_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_change_big.bmp"
+IDB_CHECKED_CHANGE_BIG  BITMAP  MOVEABLE PURE   "..\\res\\checked_change_big.bmp"
+IDB_CHECKED_WRONG_BIG   BITMAP  MOVEABLE PURE   "..\\res\\checked_wrong_big.bmp"
+IDB_UNCHECKED_BIG       BITMAP  MOVEABLE PURE   "..\\res\\unchecked_big.bmp"
+IDB_UNCHECKED_WRONG_BIG BITMAP  MOVEABLE PURE   "..\\res\\unchecked_wrong_big.bmp"
+IDB_UNCHECKED_RIGHT_BIG BITMAP  MOVEABLE PURE   "..\\res\\unchecked_right_big.bmp"
+IDB_UNCHECKED_CHANGE_BIG BITMAP  MOVEABLE PURE   "..\\res\\unchecked_change_big.bmp"
 #endif    // Neutral (Standard) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -318,7 +318,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO MOVEABLE PURE 
 BEGIN
     IDD_xpAntiSpy_DIALOG, DIALOG
     BEGIN
@@ -385,36 +385,36 @@ END
 // Bitmap
 //
 
-IDB_DIVIDER             BITMAP  DISCARDABLE     "..\\res\\divider.bmp"
-IDB_CHECKED             BITMAP  DISCARDABLE     "..\\res\\checked.bmp"
-IDB_UNCHECKED           BITMAP  DISCARDABLE     "..\\res\\unchecked.bmp"
-IDB_UNCHECKED_WRONG     BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong.bmp"
-IDB_CHECKED_RIGHT       BITMAP  DISCARDABLE     "..\\res\\checked_right.bmp"
-IDB_CHECKED_WRONG       BITMAP  DISCARDABLE     "..\\res\\checked_wrong.bmp"
-IDB_UNCHECKED_RIGHT     BITMAP  DISCARDABLE     "..\\res\\unchecked_right.bmp"
-IDB_DISABLED            BITMAP  DISCARDABLE     "..\\res\\disabled.bmp"
-IDB_UNCHECKED_CHANGE    BITMAP  DISCARDABLE     "..\\res\\unchecked_change.bmp"
-IDB_CHECKED_CHANGE      BITMAP  DISCARDABLE     "..\\res\\checked_change.bmp"
-IDB_UNPINNED            BITMAP  DISCARDABLE     "..\\res\\unpinned.bmp"
-IDB_PINNED              BITMAP  DISCARDABLE     "..\\res\\pinned.bmp"
-IDB_DIV_RIGHT           BITMAP  DISCARDABLE     "..\\res\\divider_right.bmp"
-IDB_DIV_MID             BITMAP  DISCARDABLE     "..\\res\\divider_mid.bmp"
-IDB_DIV_LEFT            BITMAP  DISCARDABLE     "..\\res\\divider_left.bmp"
-IDB_ABOUT_LOGO          BITMAP  DISCARDABLE     "..\\res\\about_logo.bmp"
-IDB_ALERT               BITMAP  DISCARDABLE     "..\\res\\alert.bmp"
-IDB_CHECKED_BIG         BITMAP  DISCARDABLE     "..\\res\\checked_big.bmp"
-IDB_CHECKED_RIGHT_BIG   BITMAP  DISCARDABLE     "..\\res\\checked_right_big.bmp"
-IDB_CHECKED_LOCKED      BITMAP  DISCARDABLE     "..\\res\\checked_locked.bmp"
-IDB_UNCHECKED_LOCKED    BITMAP  DISCARDABLE     "..\\res\\unchecked_locked.bmp"
-IDB_CHECKED_RIGHT_LOCKED BITMAP  DISCARDABLE     "..\\res\\checked_right_locked.bmp"
-IDB_CHECKED_WRONG_LOCKED BITMAP  DISCARDABLE     "..\\res\\checked_wrong_locked.bmp"
-IDB_UNCHECKED_WRONG_LOCKED BITMAP  DISCARDABLE     "..\\res\\unchecked_wrong_locked.bmp"
-IDB_UNCHECKED_RIGHT_LOCKED BITMAP  DISCARDABLE     "..\\res\\unchecked_right_locked.bmp"
-IDB_CHECKED_LOCKED_BIG  BITMAP  DISCARDABLE     "..\\res\\checked_locked_big.bmp"
-IDB_UNCHECKED_LOCKED_BIG BITMAP  DISCARDABLE     "..\\res\\unchecked_locked_big.bmp"
-IDB_ICN_SEARCH          BITMAP  DISCARDABLE     "..\\res\\icn_search.bmp"
-IDB_EDIT_CLEAR          BITMAP  DISCARDABLE     "..\\res\\edit_clear.bmp"
-IDB_EDIT_CLEAR_HOVER    BITMAP  DISCARDABLE     "..\\res\\edit_clear_hover.bmp"
+IDB_DIVIDER             BITMAP  MOVEABLE PURE   "..\\res\\divider.bmp"
+IDB_CHECKED             BITMAP  MOVEABLE PURE   "..\\res\\checked.bmp"
+IDB_UNCHECKED           BITMAP  MOVEABLE PURE   "..\\res\\unchecked.bmp"
+IDB_UNCHECKED_WRONG     BITMAP  MOVEABLE PURE   "..\\res\\unchecked_wrong.bmp"
+IDB_CHECKED_RIGHT       BITMAP  MOVEABLE PURE   "..\\res\\checked_right.bmp"
+IDB_CHECKED_WRONG       BITMAP  MOVEABLE PURE   "..\\res\\checked_wrong.bmp"
+IDB_UNCHECKED_RIGHT     BITMAP  MOVEABLE PURE   "..\\res\\unchecked_right.bmp"
+IDB_DISABLED            BITMAP  MOVEABLE PURE   "..\\res\\disabled.bmp"
+IDB_UNCHECKED_CHANGE    BITMAP  MOVEABLE PURE   "..\\res\\unchecked_change.bmp"
+IDB_CHECKED_CHANGE      BITMAP  MOVEABLE PURE   "..\\res\\checked_change.bmp"
+IDB_UNPINNED            BITMAP  MOVEABLE PURE   "..\\res\\unpinned.bmp"
+IDB_PINNED              BITMAP  MOVEABLE PURE   "..\\res\\pinned.bmp"
+IDB_DIV_RIGHT           BITMAP  MOVEABLE PURE   "..\\res\\divider_right.bmp"
+IDB_DIV_MID             BITMAP  MOVEABLE PURE   "..\\res\\divider_mid.bmp"
+IDB_DIV_LEFT            BITMAP  MOVEABLE PURE   "..\\res\\divider_left.bmp"
+IDB_ABOUT_LOGO          BITMAP  MOVEABLE PURE   "..\\res\\about_logo.bmp"
+IDB_ALERT               BITMAP  MOVEABLE PURE   "..\\res\\alert.bmp"
+IDB_CHECKED_BIG         BITMAP  MOVEABLE PURE   "..\\res\\checked_big.bmp"
+IDB_CHECKED_RIGHT_BIG   BITMAP  MOVEABLE PURE   "..\\res\\checked_right_big.bmp"
+IDB_CHECKED_LOCKED      BITMAP  MOVEABLE PURE   "..\\res\\checked_locked.bmp"
+IDB_UNCHECKED_LOCKED    BITMAP  MOVEABLE PURE   "..\\res\\unchecked_locked.bmp"
+IDB_CHECKED_RIGHT_LOCKED BITMAP  MOVEABLE PURE   "..\\res\\checked_right_locked.bmp"
+IDB_CHECKED_WRONG_LOCKED BITMAP  MOVEABLE PURE   "..\\res\\checked_wrong_locked.bmp"
+IDB_UNCHECKED_WRONG_LOCKED BITMAP  MOVEABLE PURE   "..\\res\\unchecked_wrong_locked.bmp"
+IDB_UNCHECKED_RIGHT_LOCKED BITMAP  MOVEABLE PURE   "..\\res\\unchecked_right_locked.bmp"
+IDB_CHECKED_LOCKED_BIG  BITMAP  MOVEABLE PURE   "..\\res\\checked_locked_big.bmp"
+IDB_UNCHECKED_LOCKED_BIG BITMAP  MOVEABLE PURE   "..\\res\\unchecked_locked_big.bmp"
+IDB_ICN_SEARCH          BITMAP  MOVEABLE PURE   "..\\res\\icn_search.bmp"
+IDB_EDIT_CLEAR          BITMAP  MOVEABLE PURE   "..\\res\\edit_clear.bmp"
+IDB_EDIT_CLEAR_HOVER    BITMAP  MOVEABLE PURE   "..\\res\\edit_clear_hover.bmp"
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -422,18 +422,18 @@ IDB_EDIT_CLEAR_HOVER    BITMAP  DISCARDABLE     "..\\res\\edit_clear_hover.bmp"
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE MOVEABLE PURE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE MOVEABLE PURE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE MOVEABLE PURE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -451,7 +451,7 @@ BEGIN
     "\0"
 END
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE MOVEABLE PURE 
 BEGIN
     "resource.h\0"
 END
@@ -477,8 +477,8 @@ IDI_ICON3               ICON    DISCARDABLE     "..\\res\\XPANTISPY16_16.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,9,8,2
- PRODUCTVERSION 3,9,8,2
+ FILEVERSION 3,9,8,3
+ PRODUCTVERSION 3,9,8,3
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -496,15 +496,12 @@ BEGIN
             VALUE "Comments", "by Christian Taubenheim\0"
             VALUE "CompanyName", "Tiger-IT.de\0"
             VALUE "FileDescription", "xp-AntiSpy\0"
-            VALUE "FileVersion", "3, 9, 8, 2\0"
+            VALUE "FileVersion", "3.9.8.3\0"
             VALUE "InternalName", "xp-AntiSpy\0"
             VALUE "LegalCopyright", "Copyright (C) 2001\0"
-            VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "xp-AntiSpy.EXE\0"
-            VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "xp-AntiSpy\0"
-            VALUE "ProductVersion", "3, 9, 8, 2\0"
-            VALUE "SpecialBuild", "\0"
+            VALUE "ProductVersion", "3.9.8.3\0"
         END
     END
     BLOCK "VarFileInfo"
@@ -521,8 +518,8 @@ END
 // BINARY
 //
 
-IDR_CTFMON_DUMMY        BINARY  DISCARDABLE     "..\\res\\ctfmon.exe"
-IDR_EMPTY_ICON          BINARY  DISCARDABLE     "..\\res\\empty_icon"
+IDR_CTFMON_DUMMY        BINARY  MOVEABLE PURE   "..\\res\\ctfmon.exe"
+IDR_EMPTY_ICON          BINARY  MOVEABLE PURE   "..\\res\\empty_icon"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -534,7 +531,7 @@ BEGIN
     IDS_GROUP_MEDIAPLAYER   "Media Player"
     IDS_MEDIAPLAYER_LICENSES "Lizenzen nicht automatisch erwerben"
     IDS_MEDIAPLAYER_SEND_GUID 
-                            "Identifikation des Media Players durch Internetsites nicht zulassen"
+                            "Identifikation des Media Players durch Internetseiten nicht zulassen"
     IDS_MEDIAPLAYER_CODECS  "Automatischen Codec-Download deaktivieren"
     IDS_GROUP_ERROR_REPORTS "Fehlerberichterstattung"
     IDS_ERROR_REPORTS_SEND  "Fehlerberichterstattung ausschalten"
@@ -577,7 +574,7 @@ BEGIN
     IDS_SERVICES_UPNP       "Universal Plug and Play (UPNP) Service deaktivieren"
     IDS_MAX_CONNECTIONS     "Maximal mögliche Verbindungen zu einem HTTP-Server auf 10 erhöhen"
     IDS_REGSVR_ZIPFLDR      "ZIP-Funktionalität deaktivieren"
-    IDS_ABOUT               "(c)2001 Christian Taubenheim\nEs gibt keine Garantie, dass dieses Programm auch bei Dir funktioniert. Ich habe es lange getestet, doch dies ist ein Ein-Mann Projekt und ich bin auch nur ein Mensch. Dieses Tool ist und bleibt KOSTENLOS.\n\nDieses Programm widme ich .....AWEX....., einem wirklich guten Freund und mein Mentor fürs Programmieren.\n\nEin Dank geht auch an D-Tector, der mir Wertvolle Tipps und Anregungen  zu diversen Einstellungen gegeben hat.\n\n -chris-"
+    IDS_ABOUT               "(c)2001 Christian Taubenheim\nEs gibt keine Garantie, dass dieses Programm auch bei Dir funktioniert. Ich habe es lange getestet, doch dies ist ein Ein-Mann Projekt und ich bin auch nur ein Mensch. Dieses Tool ist und bleibt KOSTENLOS.\n\nDieses Programm widme ich .....AWEX....., einem wirklich guten Freund und meiem Mentor fürs Programmieren.\n\nEin Dank geht auch an D-Tector, der mir Wertvolle Tipps und Anregungen  zu diversen Einstellungen gegeben hat.\n\n -chris-"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -619,7 +616,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_INFO_SERVICES_TASKSCHEDULER 
-                            "Stoppt den Dienst, der eingesetzt werden kann, um Programme zu bestimmten Zeitpunkten oder Ereignissen zu starten. Zu finden unter 'Systemsteuerung->Geplante Tasks'.\n Falls Du Programme von Norton oder 'BootVis' von Microsoft benutzt, dann lasse diese Einstellung bitte unberührt, da es sonst Probleme mit diesen Programmen geben kann.\nUnter Windows Vista wird der Taskplaner für die Systemwiederherstellung benötigt. Falls diese benutzt werden soll, muss derTaskplaner Dienst laufen."
+                            "Stoppt den Dienst, der eingesetzt werden kann, um Programme zu bestimmten Zeitpunkten oder Ereignissen zu starten. Zu finden unter 'Systemsteuerung->Geplante Tasks'.\n Falls Du Programme von Norton oder 'BootVis' von Microsoft benutzt, dann lasse diese Einstellung bitte unberührt, da es sonst Probleme mit diesen Programmen geben kann.\nUnter Windows Vista wird der Taskplaner für die Systemwiederherstellung benötigt. Falls diese benutzt werden soll, muss der Taskplaner Dienst laufen."
     IDS_INFO_MESSENGER_AUTOSTART 
                             "Verhindert, dass der MS Messenger bei jedem Windows-Start ausgeführt wird."
     IDS_INFO_MESSENGER_DEINSTALL 
@@ -643,7 +640,7 @@ BEGIN
     IDS_INFO_FAST_SHUTDOWN  "Falls Dein Rechner sehr lange zum Herunterfahren braucht, kannst Du das mit dieser Einstellung beschleunigen. Mit dieser Einstellung werden laufende Tasks beim Herunterfahren schneller beendet."
     IDS_INFO_SERVICES_UPNP  "In der Vergangenheit gab es einige Sicherheitslöcher in diesem Service. Falls Du kein ICS (Internet Connection Sharing) benutzt, deaktivere diesen Service. Mehr Infos zu UPNP gibt's unter http://support.microsoft.com/kb/323713/EN-US/"
     IDS_INFO_MAX_CONNECTIONS 
-                            "Normalerweise wird die maximale Anzahl an gleichzeitigen Verbindungen zu einem Internet-Server auf 4 beschränkt. Wenn man also vier Files gleichzeitig von einem Server herunterlädt, kann man nicht mehr auf ihn zugreifen. Deshalb kann mit dieser Einstellung die Obergrenze auf 10 heraufgesetzt werden (interessant für Anbindungen >=DSL)."
+                            "Normalerweise wird die maximale Anzahl an gleichzeitigen Verbindungen zu einem Internet-Server auf 4 beschränkt. Wenn man also vier Dateien gleichzeitig von einem Server herunterlädt, kann man nicht mehr auf ihn zugreifen. Deshalb kann mit dieser Einstellung die Obergrenze auf 10 heraufgesetzt werden (interessant für Anbindungen >=DSL)."
     IDS_INFO_REGSVR_ZIPFLDR "Diese Einstellung deaktiviert das eingebaute ZIP-Dekompressionsprogramm. Das Setzen dieser Einstellung ist interessant, wenn man andere Programme (z.B. WinRAR) benutzt, die nicht nur ZIP-Archive entpacken können."
     IDS_INFO_SERVICES_MSGSRV 
                             "Dieser Nachrichtendienst, mit dem man per 'net send {empfänger} {nachricht}' Nachrichten im Windows Netzwerk verschicken kann, kann unter Umständen mit bestimmten Tools missbraucht werden, um unerwünschten Spam zu verbreiten. Falls Du also 'net send' sowieso nicht verwendest, dann kann er ohne weiteres deaktiviert werden. Siehe http://www.trojaner-info.de/news/dialer_nachrichtendienst.shtml"
@@ -689,7 +686,7 @@ BEGIN
                             "Deaktiviert den Firewalldienst.\nSollte der Rechner bereits eine Firewall besitzen, so kann dieser Dienst getrost deaktiviert werden, es sei denn der gemeinsame Internetzugriff (Internet Connection Sharing) wird benutzt."
     IDS_SERVICES_SEC_CTR    "Deaktiveren des 'Security Center' Dienstes"
     IDS_INFO_SERVICES_SEC_CTR 
-                            "Dieser Dienst macht sich durch das 'Schutzschild' icon im Systemtray bemerkbar und soll vor abgelaufenen Virenscannern und nicht aktiver Firewall warnen. Meiner Meinung nach ist dieser Dienst nicht immer notwendig und belegt nur unnötig Speicher. Aber entscheide selbst ob Du diesen Dienst für notwendig erachtest. Du kannst ihn jederzeit wieder reaktivieren."
+                            "Dieser Dienst macht sich durch das 'Schutzschild' icon im Systemtray bemerkbar und soll vor abgelaufenen Virenscannern und nicht aktiver Firewall warnen. Meiner Meinung nach ist dieser Dienst nicht immer notwendig und belegt nur unnötig Speicher. Aber entscheide selbst, ob Du diesen Dienst für notwendig erachtest. Du kannst ihn jederzeit wieder reaktivieren."
     IDS_SHOW_FILE_EXT       "Bekannte Dateiendungen ebenfalls anzeigen"
     IDS_INFO_SHOW_FILE_EXT  "Normalerweise werden Endungen wie z.B. bmp, doc, pdf ... im Dateiexplorer nicht angezeigt. Leider kann dieses Verhalten ausgenutzt werden und man kann somit ausführbare Dateien z.B. als harmlose Bilddateien ausgeben. Wenn also jemand eine Datei namens 'hollywood.bmp.vbs' erstellt, dann wird normalerweise nur 'Hollywood.bmp' angezeigt. Somit würde man auf den ersten Blick denken, es wäre eine Bilddatei. Jedoch wird diese beim Öffnen als ausführbares Programm behandelt. Deswegen ist es sicherer, einfach die Dateierweiterung anzeigen zu lassen."
     IDS_BTN_APPLY           "Einstellungen übernehmen"
@@ -725,7 +722,7 @@ BEGIN
     IDS_DENY_REGEDIT        "Aufruf von Regedit nicht zulassen"
     IDS_INFO_DENY_REGEDIT   "Verhindert, dass der angemeldete Benutzer das Programm Regedit.exe aufrufen und somit Registrierungseinträge verändern kann."
     IDS_SCRIPTING_HOST      "Scripting Host deaktivieren"
-    IDS_INFO_SCRIPTING_HOST "Deaktiviert den Scripting Host, welcher für das Ausführen von Dateien mit den Endungen *.js,\n*.jse, *.vbe, *.vbs, *.wsf, *.wsh zuständig ist. Über solche Skriptdateien verbreiten sich sehr gerne böswillige Programme."
+    IDS_INFO_SCRIPTING_HOST "Deaktiviert den Scripting Host, welcher für das Ausführen von Dateien mit den Endungen *.js, *.jse, *.vbe, *.vbs, *.wsf, *.wsh zuständig ist. Über solche Skriptdateien verbreiten sich sehr gerne böswillige Programme."
     IDS_SHOW_LAST_USERNAME  "Beim Anmelden zuletzt eingeloggten User nicht anzeigen"
     IDS_INFO_SHOW_LAST_USERNAME 
                             "Wenn dieser Computer einer Domäne angeschlossen ist oder der Login-Dialog auf Windows 2000-Stil eingestellt ist, wird im Feld für den Usernamen nicht mehr der zuletzt erfolgreich eingeloggte User angezeigt."
@@ -738,7 +735,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_CD_AUTORUN          "Kein AutoPlay für Datenträger"
-    IDS_INFO_CD_AUTORUN     "Mit dieser Einstellung wird verhindert, dass z. B. beim Einlegen einer CD das System versucht, die darauf befindlichen Startdateien auszuführen. Dies gilt auch für alle anderen von Datenträger, wie z.B. USB Sticks und externe Festplatten. Mehr Info dazu unter http://de.wikipedia.org/wiki/Autorun"
+    IDS_INFO_CD_AUTORUN     "Mit dieser Einstellung wird verhindert, dass z. B. beim Einlegen einer CD das System versucht, die darauf befindlichen Startdateien auszuführen. Dies gilt auch für alle anderen  Datenträger, wie z.B. USB Sticks und externe Festplatten. Mehr Info dazu unter http://de.wikipedia.org/wiki/Autorun"
     IDS_CLEAN_RECENT_DOCS   "Verlauf der zuletzt geöffneten Dokumente löschen"
     IDS_INFO_CLEAN_RECENT_DOCS 
                             "Beim Herunterfahren des Systems werden alle in 'Start->Zuletzt verwendete Dokumente' enthaltenen Einträge gelöscht. Somit lässt sich diese Historie nicht über mehrere Sitzungen hinweg nachvollziehen."
@@ -809,20 +806,20 @@ BEGIN
     IDS_INFO_SERVICES_INDEXER 
                             "Der Indexdienst läuft als Hintergrundprozess auf dem Computer und dient der Suche nach Dateien und Ordnern. Solltest Du die Dateisuche kaum in Anspruch nehmen, so kann dieser Dienst deaktiviert werden."
     IDS_NOLMHASH            "Keine LAN Manager Hashes generieren"
-    IDS_INFO_NOLMHASH       "Wenn Du Windows-Passworte mit einer Länge von weniger als 15 Zeichen benutzt, wird aus Kompatibilitätsgründen zu Windows 95/98 ein Passworthash erstellt. Da diese als 'Schwach' gelten, sollte diese Funktion aktiviert sein, falls Du Dich nicht in einem Netzwerk mit Windows 95/98 Computern befindest. Nach Aktivieren der Einstellung musst Du Deinen Computer Neustarten und das Passwort ändern."
+    IDS_INFO_NOLMHASH       "Wenn Du Windows-Passworte mit einer Länge von weniger als 15 Zeichen benutzt, wird aus Kompatibilitätsgründen zu Windows 95/98 ein Passworthash erstellt. Da diese als 'Schwach' gelten, sollte diese Funktion aktiviert sein, falls Du Dich nicht in einem Netzwerk mit Windows 95/98 Computern befindest. Nach Aktivieren der Einstellung musst Du Deinen Computer neustarten und das Passwort ändern."
     IDS_GROUP_INFO_NETWORK  "Diese Kategorie enthält Einstellungen, welche das Netzwerk des Systems betreffen."
     IDS_LEGEND_TITLE        "Symbolreferenz"
-    IDS_LEGEND_UNCHECKED    "Sollte kein Haken in dem Icon sein, so bedeutet es dass diese Einstellung nicht aktiv ist. Z.B. würde in diesem Fall die Einstellung 'Deaktivieren des Indexdienstes' bedeuten, dass der Indexdienst momentan läuft. Eine nicht aktive Einstellung stellt immer den Status der Standardeinstellung dar, so wie er ursprünglich bei einem frisch inststalliertem Windows Betriebssystem ist."
+    IDS_LEGEND_UNCHECKED    "Sollte kein Haken in dem Icon sein, so bedeutet es, dass diese Einstellung nicht aktiv ist. Z.B. würde in diesem Fall die Einstellung 'Deaktivieren des Indexdienstes' bedeuten, dass der Indexdienst momentan läuft. Eine nicht aktive Einstellung stellt immer den Status der Standardeinstellung dar, so wie er ursprünglich bei einem frisch inststalliertem Windows Betriebssystem ist."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_LEGEND_UNCHECKED_RIGHT 
-                            "Die grüne Einfärbung des Icons bedeutet, das ein Profil aktiv ist und die betreffende Einstellung dem gewählten Profil entspricht. Grün signalisiert hier ein 'OK' zum Zustand dieser Einstellung. Ein oder auch kein Haken im Icon zeigen den jeweiligen Zustand der Einstellung."
+                            "Die grüne Einfärbung des Icons bedeutet, dass ein Profil aktiv ist und die betreffende Einstellung dem gewählten Profil entspricht. Grün signalisiert hier ein 'OK' zum Zustand dieser Einstellung. Ein oder auch kein Haken im Icon zeigen den jeweiligen Zustand der Einstellung."
     IDS_LEGEND_UNCHECKED_WRONG 
                             "Rote Icons bedeuten Einstellungen, deren Zustand dem gewählten Profil nicht entspricht. Beim Betätigen der Schaltfläche 'Einstellungen übernehmen' werden deshalb diese Einstellungen in ihren entgegengesetzen Zustand gebracht. Die Farbe Rot signalisiert hier ein 'Achtung'. Ein oder kein Haken spiegelt hier den aktuellen Zustand der Einstellung wider."
     IDS_LEGEND_UNCHECKED_CHANGE 
-                            "Eine orangefarbene Einfärbung des Icons bedeutet, das nach dem Betätigen von 'Einstellungen übernehmen' die jeweilige Einstellung in den jetzt dargestellten Zusand versetzt. Orangene Icons signalisieren eine anstehende Änderung der Einstellung die manuell hervorgerunfen wurde."
+                            "Eine orangefarbene Einfärbung des Icons bedeutet, dass nach dem Betätigen von 'Einstellungen übernehmen' die jeweilige Einstellung in den jetzt dargestellten Zusand versetzt. Orangene Icons signalisieren eine anstehende Änderung der Einstellung die manuell hervorgerunfen wurde."
     IDS_PROFILE_FILEDIALOG  "xp-AntiSpy Profile"
     IDS_NO_WGA_CHECK        "WGA Überprüfung beim jedem Login deaktivieren"
     IDS_INFO_NO_WGA_CHECK   "Wenn Du diese Einstellung siehst, bedeutet das, dass bei einem Windows Update die WGA Überprüfung installiert wurde. Teil dieser Überprüfung ist eine Anfrage auf einen Microsoft Server bei jeder Anmeldung an den Computer. Um nach einer Deaktivierung diese Einstellung wieder zu aktivieren, muss die WGA Überprüfung mit dem nächsten Windows Update wieder installiert werden."
@@ -870,15 +867,15 @@ BEGIN
     IDS_TWEAK_SVC_SUPPORT_CTR "Hilfe und Support Dienst deaktivieren"
     IDS_OPEN_COMMAND_PROMPT "Kommandozeilenprompt hier öffnen"
     IDS_INFO_TWEAK_SVC_WmdmPmSN 
-                            "Dieser Dienst ist nur notwendig für den Anschluss portabler MP3 - und Mediaplayer. Der Dienst ruft die Seriennummer des tragbaren Players ab, welches Voraussetzung für das Übertragen DRM-geschützter Inhalte vom Player auf den PC ist. Sollten also keine DRM-geschützten Inhalte verwendet werden, kann dieser Dienst deaktiviert werden und spart somit Arbeitsspeicher auf dem Computer."
+                            "Dieser Dienst ist nur notwendig für den Anschluss portabler MP3 - und Mediaplayer. Der Dienst ruft die Seriennummer des tragbaren Players ab, welche Voraussetzung für das Übertragen DRM-geschützter Inhalte vom Player auf den PC ist. Sollten also keine DRM-geschützten Inhalte verwendet werden, kann dieser Dienst deaktiviert werden und spart somit Arbeitsspeicher auf dem Computer."
     IDS_INFO_TWEAK_SVC_SUPPORT_CTR 
                             "Dieser Dienst macht das Hife und Supportcenter unter ""Start->Hilfe und Support"" verfügbar. Normalerweise muss dieser Dienst nicht immer im Hintergrund laufen und Speicher belegen. Dem eher unerfahrenen Computerbenutzer würde ich  jedoch raten, diesen laufen zu lassen."
     IDS_TWEAK_DEL_CTFMON    "ctfmon.exe deaktivieren"
     IDS_INFO_TWEAK_DEL_CTFMON 
-                            "Der Prozess ctfmon.exe ist für Spracheinstellungen und Tastaturschema verantwortlich. Im normalfalle läuft dieser Prozess im Hintergrund, obwohl er garnicht gebraucht wird. Diese Einstellung ersetzt die Datei ctfmon.exe mit einem Dummy, entfernt den Autostarteintrag dazu und deregistriert die Bibliotheken 'msctf.dll' und 'msimtf.dll'. Dadurch wird es dem System unmöglich gemacht, diesen Prozess wieder zu starten. Natürlich kann diese Einstellung jederzeit wieder zurückgenommen werden."
+                            "Der Prozess ctfmon.exe ist für Spracheinstellungen und Tastaturschema verantwortlich. Im Normalfall läuft dieser Prozess im Hintergrund, obwohl er garnicht gebraucht wird. Diese Einstellung ersetzt die Datei ctfmon.exe mit einem Dummy, entfernt den Autostarteintrag dazu und deregistriert die Bibliotheken 'msctf.dll' und 'msimtf.dll'. Dadurch wird es dem System unmöglich gemacht, diesen Prozess wieder zu starten. Natürlich kann diese Einstellung jederzeit wieder zurückgenommen werden."
     IDS_TWEAK_CLEANUP_WIZ   "Desktopbereinigungsassistent deaktivieren"
     IDS_INFO_TWEAK_CLEANUP_WIZ 
-                            "Normalerweise wird alle 60 Tage ein Dialog angezeigt, der anbietet, ungenutzte Dateien vom Desktop zu entfernen.\nMit dieser Einstellung lässt sich dass jedoch verhindern."
+                            "Normalerweise wird alle 60 Tage ein Dialog angezeigt, der anbietet, ungenutzte Dateien vom Desktop zu entfernen.\nMit dieser Einstellung lässt sich das jedoch verhindern."
     IDS_TWEAK_WINUPDATE_NO_DRIVER 
                             "Windows Update niemals nach Treibern durchsuchen"
     IDS_INFO_TWEAK_WINUPDATE_NO_DRIVER 
@@ -895,20 +892,20 @@ BEGIN
                             "Wenn das System aufgrund eines schweren Fehlers mal abstürzt, dann wird kurzzeitig der berühmte 'Blue Screen' angezeigt. Danach startet das System automatisch neu.\nDieser 'Blue Screen' bietet manchmal aber auch brauchbare Informationen über die Absturzursache, deshalb kann mit dieser Einstellung verhindert werden, dass das System nach einem 'Blue Screen' automatisch neu startet."
     IDS_TWEAK_DEV_MANAGER   "Öffnen des Gerätemanager über den Arbeitsplatz"
     IDS_INFO_TWEAK_DEV_MANAGER 
-                            "Durch setzten dieser Einstellung, wird im Kontextmenü des Arbeitsplatzes ein Eintrag zum direkten öffnen des Gerätemanagers hinzugefügt."
+                            "Durch das setzten dieser Einstellung, wird im Kontextmenü des Arbeitsplatzes ein Eintrag zum direkten Öffnen des Gerätemanagers hinzugefügt."
     IDS_OPEN_DEVICE_MANAGER "Gerätemanager..."
     IDS_TWEAK_NO_WINTOUR    "Windows Tour nicht anzeigen"
     IDS_INFO_TWEAK_NO_WINTOUR 
-                            "Nach einer Neuinstallation wird im Systemtray das Icon zum Starten der Windows Tour angezeigt. Mit dieser Einstellung läßt sich dieses von recht Vielen als nervig empfundene Angebot unterbinden."
+                            "Nach einer Neuinstallation wird im Systemtray das Icon zum Starten der Windows Tour angezeigt. Mit dieser Einstellung lässt sich dieses von recht Vielen als nervig empfundene Angebot unterbinden."
     IDS_NET_NO_RECENT_DOCS  "Automatische Links in der Netzwerkumgebung verhindern"
     IDS_INFO_NET_NO_RECENT_DOCS 
-                            "Wenn über das Netz ohne Benutzung eines Laufwerksbuchstabens auf ein beliebiges Dokument zugegriffen wird, dann legt Windows automatisch eine Verknüpfung zu diesem Ordner in der Netzwerkumgebung an. Das soll helfen, einmal benutzte Netzwerkressourcen schneller wiederzufinden. Es birgt aber auch das Risiko, dass sich sehen lässt, wo der Nutzer im lokalen Netzwerk bisher alles war. Durch setzen dieser Einstellung lässt sich dieses Verhalten verhindern. "
+                            "Wenn über das Netz ohne Benutzung eines Laufwerksbuchstabens auf ein beliebiges Dokument zugegriffen wird, dann legt Windows automatisch eine Verknüpfung zu diesem Ordner in der Netzwerkumgebung an. Das soll helfen, einmal benutzte Netzwerkressourcen schneller wiederzufinden. Es birgt aber auch das Risiko, dass sich sehen lässt, wo der Nutzer im lokalen Netzwerk bisher alles war. Durch das Setzen dieser Einstellung lässt sich dieses Verhalten verhindern. "
     IDS_NO_THUMBNAIL_CACHE  "Vorschaubilder nicht zwischenspeichern"
     IDS_INFO_NO_THUMBNAIL_CACHE 
                             "Normalerweise legt Windows für bereits angezeigte Vorschaubilder im Dateiexplorer einen Zwischenspeicher dieser Bilder in einer Datei namens 'Thumbs.db' an.\nDas kann die Vorschau dieser Bilder in der Regel beschleunigen. Sollte das jedoch nicht gewünscht sein, kann man dieses Verhalten durch Aktivieren der Einstellung verhindern."
     IDS_NO_SEARCH_ASSISTANT "Suchassistenten deaktivieren"
     IDS_INFO_NO_SEARCH_ASSISTANT 
-                            "Diese Einstellung verhindert dass der Suchassistent eingeblendet wird, wenn man die Dateisuche startet. Stattdessen wird die klassische Suchmaske eingeblendet."
+                            "Diese Einstellung verhindert, dass der Suchassistent eingeblendet wird, wenn man die Dateisuche startet. Stattdessen wird die klassische Suchmaske eingeblendet."
     IDS_DISABLE_UAC         "User Account Control deaktivieren"
     IDS_INFO_DISABLE_UAC    "Mit Windows Vista wurde das User Account Control (UAC) eingeführt. Es soll verhindern, das Eingriffe im System vorgenommen werden, von denen der Benutzer nichts mitbekommt. Deshalb wird bei jedem Programm, das administrative Rechte erfordert, durch einen Dialog abgefragt, ob der Benutzer dies zulassen möchte. Erfahrene Benutzer fühlen sich durch diese ständige Abfrage jedoch eher genervt. Deshalb lässt sie sich durch diese Einstellung deaktivieren.\nBitte diese Einstellung nur deaktivieren, wenn Du Dir wirklich sicher bist, dass Du Dein System vollständig unter Kontrolle hast!!\nAnderenfalls  könnte damit eine große Sicherheitslücke im System geöffnet werden."
     IDS_IE_NO_SQM           "Nicht am Programm zum Kundenfeedback teilnehmen."
@@ -920,7 +917,7 @@ BEGIN
     IDS_IE_SUGGESTED_SITES  "'Vorgeschlagene Sites' deaktivieren."
     IDS_INFO_IE_SUGGESTED_SITES 
                             "Mit dieser Einstellung wird der Onlinedienst 'Vorgeschlagene Sites' im Internet Explorer deaktiviert.\nDieser Dienst soll den eigenen Browserverlauf auswerten und Vorschläge zu ähnlichen Webseiten machen. Dazu werden jedoch die Adressen in deinem Browserverlauf über das Internet übertragen. Das heisst das Microsoft sehen könnte, welche Webseiten du besucht hast. Deshalb würde ich empfehlen, diesen Onlinedienst nicht zu benutzen."
-    IDS_NO_UNREAD_MAIL      "Anzahl der ungelesenen Mails nicht im Begüßungsbildschirm anzeigen"
+    IDS_NO_UNREAD_MAIL      "Anzahl der ungelesenen Mails nicht im Begrüßungsbildschirm anzeigen"
     IDS_INFO_NO_UNREAD_MAIL "Durch diese Einstellung wird die Anzahl der ungelesenen Mails nicht mehr im Begrüßungsbildschirm vor der Anmeldung angezeigt."
     IDS_BTN_SEARCH          "Suchen"
     IDS_HINT_SEARCH         "Bitte Suchbegriff eingeben"
@@ -928,9 +925,9 @@ BEGIN
     IDS_PROFILE_ERROR       "Dieses Profil konnte nicht importiert werden, es enthält keine Einstellungen."
     IDS_NO_VDM              "Zugriff auf 16-Bit-Anwendungen verhindern"
     IDS_INFO_NO_VDM         "Erst  kürzlich wurde eine Lücke in Windows Betriebssystemen entdeckt, die es ermöglichen kann, Administratorrechte zu erlangen. Durch diese Einstellung wird die Ausführung von 16-Bit Anwendungen verhindert. Wenn Du also keine alte 16-Bit Software mehr einsetzt, dann ist es ratsam diese Einstellung zu aktivieren."
-    IDS_INFO_NO_TEREDO      "Durch setzen dieser Einstellung wird der TEREDO Adapter deaktiviert. Weitere Informationen dazu: http://de.wikipedia.org/wiki/Teredo und http://goo.gl/aC6Ly"
+    IDS_INFO_NO_TEREDO      "Durch Setzen dieser Einstellung wird der TEREDO Adapter deaktiviert. Weitere Informationen dazu: http://de.wikipedia.org/wiki/Teredo und http://goo.gl/aC6Ly"
     IDS_NO_TEREDO           "TEREDO Adapter deaktivieren"
-    IDS_INFO_NO_ISATAP      "Durch setzen dieser Einstellung wird der ISATAP Adapter deaktiviert. Der ISATAP Adapter ist Ähnlich dem TEREDO Adapter und ermöglicht die Kommunikation mit IPV6 Netzwerken. Im Normalfall benötigt man diesen Adapter nicht und er kann deaktiviert werden. Weitergehende Infos auf Englisch: http://en.wikipedia.org/wiki/ISATAP"
+    IDS_INFO_NO_ISATAP      "Durch Setzen dieser Einstellung wird der ISATAP Adapter deaktiviert. Der ISATAP Adapter ist Ähnlich dem TEREDO Adapter und ermöglicht die Kommunikation mit IPV6 Netzwerken. Im Normalfall benötigt man diesen Adapter nicht und er kann deaktiviert werden. Weitergehende Infos auf Englisch: http://en.wikipedia.org/wiki/ISATAP"
     IDS_NO_ISATAP           "ISATAP Adapter deaktivieren"
     IDS_INFO_NO_NCSI        "Um festzustellen, ob der Computer über eine Internetverbindung verfügt, nimmt Windows bei jeder Änderung des Netzwerkzustands Kontakt mit dem Server www.msftncsi.com auf und ruft die Datei ncsi.txt ab.\nWird diese Einstellung deaktiviert, so wird im System Tray der Netzwerkzustand als 'Kein Internetzugriff' (Gelbes Ausrufezeichen) angezeigt, obwohl Internetzugriff besteht."
     IDS_NO_NCSI             "Netzwerkstatusindikator deaktivieren"
@@ -945,10 +942,10 @@ BEGIN
     IDS_NO_HTTPS_CACHE      "HTTPS Webseiten nicht zwischenspeichern"
     IDS_INFO_CERT_REVOCATION 
                             "Kriminelle könnten in die Hände eines gültigen Zertifikats kommen und z.B. so vortäuschen, dass sie der Herausgeber der Webseite Ihrer Bank sind. Um solchen Missbrauch zu verhindern gibt es Zertifikatssperrlisten. Sobald dieser Missbrauch auffliegt, wird das verwendete Zertifikat auf die Sperrliste gesetzt und der Benutzer gewarnt.\nMehr Info dazu unter unter http://goo.gl/aAv7g"
-    IDS_INFO_CERT_TRUST     "Windows prüft bei heruntergeladenen, signierten Dateien regelmäßig, ob dieses Zertifikat zurückgezogen wurde. Hierfür wird eine Verbindung zu crl.usertrust.com aufgebaut. Dies Option bewirkt, dass diese Verbindung unterbleibt. Weiterer positiver Nebeneffekt ist, dass die Datei praktisch verzögerungsfrei ausgeführt wird. Obwohl diese Einstellung im Internetexplorer durchgeführt wird, hat sie die größte Auswirkung auf den Dateiexplorer. Mehr Info dazu unter http://goo.gl/JYWAB"
-    IDS_INFO_NO_HTTPS_CACHE "HTTPS Webseiten sind Seiten, die verschlüsselt zwischen dem Webserver und Ihrem PC übertragen werden. Durch diese Option verhindern Sie, dass teile der verschlüsselten Webseite auf ihrem PC zwischengespeichert werden und dadurch jemand an den, unter Umständen vertraulichen Inhalt, gelangt. Gerade bei langsamen Internetverbindungen kann das Deaktivieren der Zwischenspeicherung den Seitenaufbau spürbar verlangsamen. Der Firefox Browser speichert standardmäßig keine SSL verschlüsselten Seiten zwischen."
+    IDS_INFO_CERT_TRUST     "Windows prüft bei heruntergeladenen, signierten Dateien regelmäßig, ob dieses Zertifikat zurückgezogen wurde. Hierfür wird eine Verbindung zu crl.usertrust.com aufgebaut. Diese Option bewirkt, dass diese Verbindung unterbleibt. Weiterer positiver Nebeneffekt ist, dass die Datei praktisch verzögerungsfrei ausgeführt wird. Obwohl diese Einstellung im Internet Explorer durchgeführt wird, hat sie die größte Auswirkung auf den Datei Explorer. Mehr Info dazu unter http://goo.gl/JYWAB"
+    IDS_INFO_NO_HTTPS_CACHE "HTTPS Webseiten sind Seiten, die verschlüsselt zwischen dem Webserver und Deinem PC übertragen werden. Durch diese Option verhindern Sie, dass teile der verschlüsselten Webseite auf Deinem PC zwischengespeichert werden und dadurch jemand an den, unter Umständen vertraulichen Inhalt, gelangt. Gerade bei langsamen Internetverbindungen kann das Deaktivieren der Zwischenspeicherung den Seitenaufbau spürbar verlangsamen. Der Firefox Browser speichert standardmäßig keine SSL verschlüsselten Seiten zwischen."
     IDS_NO_FORCEREBOOT      "Nach Update keinen Neustart erzwingen"
-    IDS_INFO_NO_FORCEREBOOT "Das setzen dieser Einstellung bewirkt, das nach einem Windows Update der Neustart des Rechners nicht erzwungen wird."
+    IDS_INFO_NO_FORCEREBOOT "Das Setzen dieser Einstellung bewirkt, das nach einem Windows Update der Neustart des Rechners nicht erzwungen wird."
     IDS_PRF                 "Profil"
     IDS_TWEAK_NO_SHORTCUT_ARROW "Verknüpfungspfeil ausblenden"
     IDS_INFO_TWEAK_NO_SHORTCUT_ARROW 
@@ -961,9 +958,52 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_NO_RECENT_DOCS      "Keinen Verlauf der zuletzt geöffneten Dokumente anlegen"
-    IDS_INFO_NO_RECENT_DOCS "Mit setzen dieser Einstellung werden keine Verknüpfungen zu den kürzlich geöffneten Dokumenten mehr angelegt. Der Eintrag 'Zuletzt verwendetet Dokumente' im Startmenü wird dann ebenfalls nicht mehr angezeigt."
+    IDS_INFO_NO_RECENT_DOCS "Mit Setzen dieser Einstellung werden keine Verknüpfungen zu den kürzlich geöffneten Dokumenten mehr angelegt. Der Eintrag 'Zuletzt verwendetet Dokumente' im Startmenü wird dann ebenfalls nicht mehr angezeigt."
     IDS_TWEAK_SVC_BITS      "BITS Dienst deaktivieren"
     IDS_INFO_TWEAK_SVC_BITS " "
+    IDS_GROUP_DATASAFETY    "Datenschutz"
+    IDS_TELEMETRY           "Diagnose und Nutzungsdaten deaktivieren"
+    IDS_INFO_TELEMETRY      "Das Setzen dieser Einstellung verhindert das Windows Diagnosedaten über dieses System sammelt. Zusätzlich werden die Dienste 'Diagnose und Nachverfolgung' und 'WAP Push-Nachrichtenroutingdienst' deaktiviert"
+    IDS_APP_TELEMETRY       "Anwendungstelemetrie deaktivieren"
+    IDS_AD_ID               "Verwendung der Werbe-ID verbieten"
+    IDS_INFO_AD_ID          "Durch Setzen dieser Einstellung wird verhindert das Apps die eindeutige Werbe-ID dieses Systems verwenden. Zusätzlich wird die generierte Werbe-ID gelöscht."
+    IDS_WRITING_BEHAVIOR    "Keine Informationen zum Schreibverhalten übertragen"
+    IDS_INFO_WRITING_BEHAVIOR 
+                            "Das Setzen dieser Einstellung verhindert das Windows Daten über dein Schreibvehalten an Microsoft überträgt"
+    IDS_FEEDBACK            "Feedbackhäufigkeit deaktivieren"
+    IDS_INFO_FEEDBACK       "Das Setzen dieser Einstellung stellt die 'Feedbackhäufigkeit' auf 0 ein.\n Mehr Info dazu von Microsoft selbst http://windows.microsoft.com/de-de/windows-10/feedback-diagnostics-privacy-faq"
+    IDS_BIOMETRY            "Biometrie deaktivieren"
+    IDS_INFO_BIOMETRY       "Deaktiviert die Biometrie Funktionen inklusive der Biometrischen Benutzeranmeldung"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_WEBSEARCH           "Websuche deaktivieren"
+    IDS_INFO_WEBSEARCH      "Durch das Setzen dieser Einstellung wird beim benutzen der Windows-Suche nicht automatisch auch im Internet gesucht"
+    IDS_LOCATION_PROVIDER   "Deaktivieren der Lokalisierungsfunktionen"
+    IDS_INFO_LOCATION_PROVIDER 
+                            "Das Setzen dieser Einstellung deaktiviert die Positionserkennung. Zusätzlich wird der Geolokalisierungsdienst des Systems beendet und deaktiviert."
+    IDS_SENSORS             "Deaktivieren des Sensorzugriffs"
+    IDS_INFO_SENSORS        "Das Setzen dieser Einstellung verhindert, das Apps auf die Sensoren des Systems zugriff haben."
+    IDS_INFO_APP_TELEMETRY  " "
+    IDS_GROUP_INFO_DATASAFETY "Datenschutzeinstellungen dieses Systems"
+    IDS_WIFI_SENSE          "WiFi-Sense deaktivieren"
+    IDS_INFO_WIFI_SENSE     " WiFi-Sense wird genutzt um die WLAN Zugangsdaten mit seinen Outlook.com-, Skype- oder Facebook- Kontakten zu teilen.."
+    IDS_SITE_PREDICTION     "Seitenvorhersage deaktivieren"
+    IDS_INFO_SITE_PREDICTION 
+                            "Durch das Setzen dieser Einstellung wird verhindert, das beim Browsen mit dem Edge Browser der Verlauf an Microsoft gesendet wird, um dort analysiert zu werden."
+    IDS_UPDATE_SHARING      "Windows Update nicht via P2P weiterverteilen"
+    IDS_INFO_UPDATE_SHARING "Setzen dieser Einstellung verhindert, das die heruntergeladenen Windows Updates per P2P Filesharing mit anderen Windows Installationen im Internet geteilt werden."
+    IDS_DIAGTRACK           "Deaktivieren des Diagnose- und Nachverfolgungsdienstes"
+    IDS_INFO_DIAGTRACK      "Dieser Dienst sammelt Daten über funktionale Probleme in Windows-Komponenten und übermittelt diese an Microsoft."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INVENTORY           "Inventarisierung Deaktivieren"
+    IDS_INFO_INVENTORY      "Die Inventarisierung sammelt Informationen zu Applikationen, Dateien, Geräten und Treibern und sendet diese vermutlich an Microsoft."
+    IDS_PERSONALIZE         "Kennenlernen Deaktiveren"
+    IDS_INFO_PERSONALIZE    "Unter dem Begriff 'Kennenlernen' versteht Microsoft, das Windows und Cortana Daten über die Schreibverhalten, deine Kontakte u.v.m. sammelt, diese zu Microsoft überträgt und Analysiert. Dadurch soll dann Dein 'Erlebnis' mit Windows und Cortana gesteigert werden. Was aber wirklich mit den gesammelten Daten passiert ist unklar."
 END
 
 #endif    // Deutsch (Deutschland) resources

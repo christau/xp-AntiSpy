@@ -57,6 +57,9 @@ CString CResource::getText(UINT id)
 		case ST_PIF_SUFFIX:
 			resId = IDS_PIF_SUFFIX;
 		break;
+		case ST_APP_TELEMETRY:
+			resId = IDS_APP_TELEMETRY;
+		break;
 		case ST_NO_ROOT_CERT:
 			resId = IDS_NO_ROOT_CERT;
 		break;
@@ -132,6 +135,12 @@ CString CResource::getText(UINT id)
 		case ST_SERVICES_WINDOWS_DEFENDER:
 			resId = IDS_SERVICES_WINDOWS_DEFENDER;
 		break;
+		case ST_WIFI_SENSE:
+			resId = IDS_WIFI_SENSE;
+		break;
+		case ST_TELEMETRY:
+			resId = IDS_TELEMETRY;
+		break;
 		case ST_TWEAK_NO_SHORTCUT_ARROW:
 			resId = IDS_TWEAK_NO_SHORTCUT_ARROW;
 		break;
@@ -143,6 +152,12 @@ CString CResource::getText(UINT id)
 		break;
 		case ST_IE_SCHEDULED_UPDATES:
 			resId = IDS_IE_SCHEDULED_UPDATES;
+		break;
+		case ST_LOCATION_PROVIDER:
+			resId = IDS_LOCATION_PROVIDER;
+		break;
+		case ST_WEBSEARCH:
+			resId = IDS_WEBSEARCH;
 		break;
 		case ST_MEDIAPLAYER_CODECS:
 			resId = IDS_MEDIAPLAYER_CODECS;
@@ -168,6 +183,9 @@ CString CResource::getText(UINT id)
 		case ST_READER_DISABLE_JS:
 			resId = IDS_READER_DISABLE_JS;
 		break;
+		case ST_SENSORS:
+			resId = IDS_SENSORS;
+		break;
 		case ST_IE_SUGGESTED_SITES:
 			resId = IDS_IE_SUGGESTED_SITES;
 		break;
@@ -179,6 +197,12 @@ CString CResource::getText(UINT id)
 		break;
 		case ST_SERVICES_TASKSCHEDULER:
 			resId = IDS_SERVICES_TASKSCHEDULER;
+		break;
+		case ST_BIOMETRY:
+			resId = IDS_BIOMETRY;
+		break;
+		case ST_WRITING_BEHAVIOR:
+			resId = IDS_WRITING_BEHAVIOR;
 		break;
 		case ST_REGSVR_LICDLL:
 			resId = IDS_REGSVR_LICDLL;
@@ -264,8 +288,14 @@ CString CResource::getText(UINT id)
 		case ST_CD_AUTORUN:
 			resId = IDS_CD_AUTORUN;
 		break;
+		case ST_FEEDBACK:
+			resId = IDS_FEEDBACK;
+		break;
 		case ST_REGSVR_ZIPFLDR:
 			resId = IDS_REGSVR_ZIPFLDR;
+		break;
+		case ST_UPDATE_SHARING:
+			resId = IDS_UPDATE_SHARING;
 		break;
 		case ST_SUPPORTUSER:
 			resId = IDS_SUPPORTUSER;
@@ -276,6 +306,12 @@ CString CResource::getText(UINT id)
 		case ST_TWEAK_DEV_MANAGER:
 			resId = IDS_TWEAK_DEV_MANAGER;
 		break;
+		case ST_AD_ID:
+			resId = IDS_AD_ID;
+		break;
+		case ST_PERSONALIZE:
+			resId = IDS_PERSONALIZE;
+		break;
 		case ST_TWEAK_WINUPDATE_NO_DRIVER:
 			resId = IDS_TWEAK_WINUPDATE_NO_DRIVER;
 		break;
@@ -284,6 +320,9 @@ CString CResource::getText(UINT id)
 		break;
 		case ST_MP9_USAGETRACKING:
 			resId = IDS_MP9_USAGETRACKING;
+		break;
+		case ST_INVENTORY:
+			resId = IDS_INVENTORY;
 		break;
 		case ST_NO_THUMBNAIL_CACHE:
 			resId = IDS_NO_THUMBNAIL_CACHE;
@@ -333,6 +372,9 @@ CString CResource::getText(UINT id)
 		case ST_TWEAK_NO_WINTOUR:
 			resId = IDS_TWEAK_NO_WINTOUR;
 		break;
+		case ST_SITE_PREDICTION:
+			resId = IDS_SITE_PREDICTION;
+		break;
 
 	}
 	assert(resId != -1);
@@ -354,6 +396,9 @@ CString CResource::getGroupText(UINT id)
 		break;
 		case GI_MEDIAPLAYER:
 			resId = IDS_GROUP_MEDIAPLAYER;
+		break;
+		case GI_DATASAFETY:
+			resId = IDS_GROUP_DATASAFETY;
 		break;
 		case GI_MESSENGER:
 			resId = IDS_GROUP_MESSENGER;
@@ -394,6 +439,9 @@ CString CResource::getGroupHelpText(UINT id)
 		break;
 		case GI_MEDIAPLAYER:
 			resId = IDS_GROUP_INFO_MEDIAPLAYER;
+		break;
+		case GI_DATASAFETY:
+			resId = IDS_GROUP_INFO_DATASAFETY;
 		break;
 		case GI_MESSENGER:
 			resId = IDS_GROUP_INFO_MESSENGER;
@@ -452,6 +500,9 @@ CString CResource::getHelpText(UINT id)
 		break;
 		case ST_PIF_SUFFIX:
 			resId = IDS_INFO_PIF_SUFFIX;
+		break;
+		case ST_APP_TELEMETRY:
+			resId = IDS_INFO_APP_TELEMETRY;
 		break;
 		case ST_NO_ROOT_CERT:
 			resId = IDS_INFO_NO_ROOT_CERT;
@@ -528,6 +579,12 @@ CString CResource::getHelpText(UINT id)
 		case ST_SERVICES_WINDOWS_DEFENDER:
 			resId = IDS_INFO_SERVICES_WINDOWS_DEFENDER;
 		break;
+		case ST_WIFI_SENSE:
+			resId = IDS_INFO_WIFI_SENSE;
+		break;
+		case ST_TELEMETRY:
+			resId = IDS_INFO_TELEMETRY;
+		break;
 		case ST_TWEAK_NO_SHORTCUT_ARROW:
 			resId = IDS_INFO_TWEAK_NO_SHORTCUT_ARROW;
 		break;
@@ -539,6 +596,12 @@ CString CResource::getHelpText(UINT id)
 		break;
 		case ST_IE_SCHEDULED_UPDATES:
 			resId = IDS_INFO_IE_SCHEDULED_UPDATES;
+		break;
+		case ST_LOCATION_PROVIDER:
+			resId = IDS_INFO_LOCATION_PROVIDER;
+		break;
+		case ST_WEBSEARCH:
+			resId = IDS_INFO_WEBSEARCH;
 		break;
 		case ST_MEDIAPLAYER_CODECS:
 			resId = IDS_INFO_MEDIAPLAYER_CODECS;
@@ -564,6 +627,9 @@ CString CResource::getHelpText(UINT id)
 		case ST_READER_DISABLE_JS:
 			resId = IDS_INFO_READER_DISABLE_JS;
 		break;
+		case ST_SENSORS:
+			resId = IDS_INFO_SENSORS;
+		break;
 		case ST_IE_SUGGESTED_SITES:
 			resId = IDS_INFO_IE_SUGGESTED_SITES;
 		break;
@@ -575,6 +641,12 @@ CString CResource::getHelpText(UINT id)
 		break;
 		case ST_SERVICES_TASKSCHEDULER:
 			resId = IDS_INFO_SERVICES_TASKSCHEDULER;
+		break;
+		case ST_BIOMETRY:
+			resId = IDS_INFO_BIOMETRY;
+		break;
+		case ST_WRITING_BEHAVIOR:
+			resId = IDS_INFO_WRITING_BEHAVIOR;
 		break;
 		case ST_REGSVR_LICDLL:
 			resId = IDS_INFO_REGSVR_LICDLL;
@@ -660,8 +732,14 @@ CString CResource::getHelpText(UINT id)
 		case ST_CD_AUTORUN:
 			resId = IDS_INFO_CD_AUTORUN;
 		break;
+		case ST_FEEDBACK:
+			resId = IDS_INFO_FEEDBACK;
+		break;
 		case ST_REGSVR_ZIPFLDR:
 			resId = IDS_INFO_REGSVR_ZIPFLDR;
+		break;
+		case ST_UPDATE_SHARING:
+			resId = IDS_INFO_UPDATE_SHARING;
 		break;
 		case ST_SUPPORTUSER:
 			resId = IDS_INFO_SUPPORTUSER;
@@ -672,6 +750,12 @@ CString CResource::getHelpText(UINT id)
 		case ST_TWEAK_DEV_MANAGER:
 			resId = IDS_INFO_TWEAK_DEV_MANAGER;
 		break;
+		case ST_AD_ID:
+			resId = IDS_INFO_AD_ID;
+		break;
+		case ST_PERSONALIZE:
+			resId = IDS_INFO_PERSONALIZE;
+		break;
 		case ST_TWEAK_WINUPDATE_NO_DRIVER:
 			resId = IDS_INFO_TWEAK_WINUPDATE_NO_DRIVER;
 		break;
@@ -680,6 +764,9 @@ CString CResource::getHelpText(UINT id)
 		break;
 		case ST_MP9_USAGETRACKING:
 			resId = IDS_INFO_MP9_USAGETRACKING;
+		break;
+		case ST_INVENTORY:
+			resId = IDS_INFO_INVENTORY;
 		break;
 		case ST_NO_THUMBNAIL_CACHE:
 			resId = IDS_INFO_NO_THUMBNAIL_CACHE;
@@ -728,6 +815,9 @@ CString CResource::getHelpText(UINT id)
 		break;
 		case ST_TWEAK_NO_WINTOUR:
 			resId = IDS_INFO_TWEAK_NO_WINTOUR;
+		break;
+		case ST_SITE_PREDICTION:
+			resId = IDS_INFO_SITE_PREDICTION;
 		break;
 
 	}

@@ -66,8 +66,11 @@ int CHelpBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	cf.crTextColor=0x00000000;
 	cf.bCharSet=ANSI_CHARSET;
 	cf.bPitchAndFamily=DEFAULT_PITCH;
+#ifndef VS2015
 	strcpy(cf.szFaceName, "Arial");
-	
+#else
+	wcscpy(cf.szFaceName, _T("Arial"));
+#endif
 	SetDefaultCharFormat(cf);
 
 	return 0;

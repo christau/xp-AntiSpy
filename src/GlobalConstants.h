@@ -23,16 +23,14 @@
 #include <vector>
 
 // version number
-#define APPVERSION "xp-AntiSpy V3.98-2";
+#define APPVERSION "xp-AntiSpy V3.98-3 beta";
 
 const int BTNHEIGHT = 25;
 const int SEARCH_HEIGHT = 20;
 
 #define KEY_WOW64_64KEY 0x0100
 
-/* always include the ST_END_ENTRY*/
-const int ITEMCOUNT = 104;
-const int GROUPCOUNT = 9;
+const int GROUPCOUNT = 10;
 const int PROFILE_SUGGESTS_OFF = -1;
 const int PROFILE_SUGGESTS_ON = 1;
 const int PROFILE_SUGGESTS_NOTHING = 0;
@@ -176,10 +174,28 @@ enum SETTINGS
 	ST_TWEAK_NO_SHORTCUT_ARROW,		//101 #group=GI_TWEAKS
 	ST_NO_RECENT_DOCS,				//102 #group=GI_TWEAKS
 	ST_TWEAK_SVC_BITS,				//103 #group=GI_TWEAKS
-	ST_END_ENTRY
+	ST_TELEMETRY,					//104 #group=GI_DATASAFETY
+	ST_APP_TELEMETRY,				//105 #group=GI_DATASAFETY
+	ST_AD_ID,						//106 #group=GI_DATASAFETY
+	ST_WRITING_BEHAVIOR,			//107 #group=GI_DATASAFETY
+	ST_FEEDBACK,					//108 #group=GI_DATASAFETY
+	ST_BIOMETRY,					//109 #group=GI_DATASAFETY
+	ST_WEBSEARCH,					//110 #group=GI_DATASAFETY
+	ST_LOCATION_PROVIDER,			//111 #group=GI_DATASAFETY
+		ST_SENSORS,					//112 #group=GI_DATASAFETY
+		ST_WIFI_SENSE,				//113 #group=GI_DATASAFETY
+		ST_SITE_PREDICTION,			//114 #group=GI_DATASAFETY
+		ST_UPDATE_SHARING,			// #group=GI_DATASAFETY
+		ST_INVENTORY,				// #group=GI_DATASAFETY
+		ST_PERSONALIZE,				// #group=GI_DATASAFETY
+		ST_END_ENTRY
 };
+/* always include the ST_END_ENTRY*/
+const int ITEMCOUNT = ST_END_ENTRY;// 113;
+
 enum groups
 {
+	GI_DATASAFETY,
 	GI_MEDIAPLAYER,
 	GI_ERROR_REPORTS,
 	GI_MISCELLANOUS,
